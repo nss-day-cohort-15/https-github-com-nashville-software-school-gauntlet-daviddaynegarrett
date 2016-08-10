@@ -124,6 +124,7 @@ Gauntlet.GuildHall.Sorcerer.prototype = new Gauntlet.GuildHall.Mage();
       - Assassin
  */
 
+
  Gauntlet.GuildHall.Stealth = function() {
   this.name = "Stealth";
   this.healthBonus = this.healthBonus + 10;
@@ -152,4 +153,5 @@ Gauntlet.GuildHall.Shadow_Warrior = function () {
   this.intelligenceBonus = this.intelligenceBonus - 10;
   this.strengthBonus = this.strengthBonus + 10;
 }
+
 
