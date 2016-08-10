@@ -40,8 +40,8 @@ gauntlet.Combatants.Player = function(name) {
   };
 };
 
-gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-  this.weapon = newWeapon;
+gauntlet.Combatants.Player.prototype.setWeapon = function(selectedWeapon) {
+  this.weapon = new gauntlet.Arsenal[selectedWeapon.replace(/\W/g,'')]();
 }
 
 gauntlet.Combatants.Player.prototype.generateClass = function(SelectedClass) {
@@ -61,9 +61,8 @@ gauntlet.Combatants.Player.prototype.generateClass = function(SelectedClass) {
   this.health += this.class.healthBonus;
   return this.class;
   } else {
-    this.class = new gauntlet.GuildHall[SelectedClass]()
+    this.class = new gauntlet.GuildHall[SelectedClass]();
              // = new gauntlet.GuildHall.Warrior();
-
 }
 
 }
@@ -103,4 +102,3 @@ gauntlet.Combatants.Monster.prototype = new gauntlet.Combatants.Player();
 
 return gauntlet
 })(Gauntlet || {});
-
