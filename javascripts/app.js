@@ -7,37 +7,15 @@
 
 var Gauntlet = (function(gauntlet) {
 
-// $('body').on('click', function(evt){
-//     var selectedClass;
-//       switch(evt.target.innerHTML){
-//         case 'Warrior':
-//           selectedClass = 'Warrior';
-//           break;
-//         case 'Wizard':
-//           selectedClass = 'Wizard';
-//           break;
-//         default:
-//           selectedClass = 'random';
-//           break;
-//       }
-
-    // player.generateClass(selectedClass);
-    // console.log('selectedClass ' , selectedClass);
-    // console.log('player', player);
-// });
-
-var player = {};
+var player = new gauntlet.Combatants.Human();
 
 function createPlayer(){
-   player = new gauntlet.Combatants.Human();
    player.playerName = $('#player-name').val();
    player.setWeapon(new gauntlet.Arsenal.BroadSword());
    //player.generateClass();
    console.log('Player on click: ', player.toString());
    return player;
 }
-
-
 
 /*
   Test code to generate a spell
@@ -47,7 +25,10 @@ console.log("spell: ", spell.toString());
 
 
 $(document).ready(function() {
-  $('.classCard').on('click', evt => player.generateClass(evt.target.innerHTML));
+  $('.classCard').on('click', function(evt){
+     player.generateClass(evt.target.innerHTML);
+     console.log(player);
+   });
   /*
     Show the initial view that accepts player name
    */
