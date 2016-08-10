@@ -3,30 +3,23 @@
  */
 
 
+var Gauntlet = (function(gauntlet) {
+
 
 function createPlayer(){
-  var player = new Gauntlet.Combatants.Human();
+  var player = new gauntlet.Combatants.Human();
    player.playerName = $('#player-name').val();
-   player.setWeapon(new BroadSword());
+   player.setWeapon(new gauntlet.Arsenal.BroadSword());
    player.generateClass();
    console.log('Player on click: ', player.toString());
 }
 
 
-// var warrior = new Gauntlet.Combatants.Human();
-// warrior.setWeapon(new WarAxe());
-// warrior.generateClass();  // This will be used for "Surprise me" option
-// console.log(warrior.toString());
-//
-// var orc = new Gauntlet.Combatants.Orc();
-// orc.generateClass();
-// orc.setWeapon(new BroadSword());
-// console.log(orc.toString());
 
 /*
   Test code to generate a spell
  */
-var spell = new Gauntlet.SpellBook.Sphere();
+var spell = new gauntlet.SpellBook.Sphere();
 console.log("spell: ", spell.toString());
 
 
@@ -70,3 +63,6 @@ $(document).ready(function() {
   });
 
 });
+return gauntlet
+})(Gauntlet || {});
+
