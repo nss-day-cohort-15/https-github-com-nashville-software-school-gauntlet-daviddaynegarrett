@@ -44,12 +44,15 @@ gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 }
 
-gauntlet.Combatants.Player.prototype.generateClass = function() {
+gauntlet.Combatants.Player.prototype.generateClass = function(SelectedClass) {
+
   // Get a random index from the allowed classes array
+  if (SelectedClass === 'random'){
   var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
   // Get the string at the index
   var randomClass = this.allowedClasses[random];
+                  // = this.allowedClasses[2]
 
   // Composes the corresponding player class into the player object
   this.class = new gauntlet.GuildHall[randomClass]();
@@ -57,8 +60,13 @@ gauntlet.Combatants.Player.prototype.generateClass = function() {
   // Add the health bonus
   this.health += this.class.healthBonus;
   return this.class;
-};
+  } else {
+    this.class = new gauntlet.GuildHall[SelectedClass]()
+             // = new gauntlet.GuildHall.Warrior();
 
+}
+
+}
 /*
   Define the base properties for a human in a
   constructor function.

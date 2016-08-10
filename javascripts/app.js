@@ -2,35 +2,39 @@
   Test code to generate a human player and an orc player
  */
 
-$('body').on('click', function(evt){
-    var selectedClass;
-      switch(evt.target.innerHTML){
-        case 'Warrior':
-          selectedClass = 'Warrior';
-          break;
-        case 'Wizard':
-          selectedClass = 'Wizard';
-          break;
-        default:
-          selectedClass = 'random';
-          break;
-      }
-
-    player.generateClass(selectedClass);
-    console.log('selectedClass ' , selectedClass);
-});
 
 
 
 var Gauntlet = (function(gauntlet) {
 
+// $('body').on('click', function(evt){
+//     var selectedClass;
+//       switch(evt.target.innerHTML){
+//         case 'Warrior':
+//           selectedClass = 'Warrior';
+//           break;
+//         case 'Wizard':
+//           selectedClass = 'Wizard';
+//           break;
+//         default:
+//           selectedClass = 'random';
+//           break;
+//       }
+
+    // player.generateClass(selectedClass);
+    // console.log('selectedClass ' , selectedClass);
+    // console.log('player', player);
+// });
+
+var player = {};
 
 function createPlayer(){
-  var player = new gauntlet.Combatants.Human();
+   player = new gauntlet.Combatants.Human();
    player.playerName = $('#player-name').val();
    player.setWeapon(new gauntlet.Arsenal.BroadSword());
    //player.generateClass();
    console.log('Player on click: ', player.toString());
+   return player;
 }
 
 
@@ -43,6 +47,7 @@ console.log("spell: ", spell.toString());
 
 
 $(document).ready(function() {
+  $('.classCard').on('click', evt => player.generateClass(evt.target.innerHTML));
   /*
     Show the initial view that accepts player name
    */
