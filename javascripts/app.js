@@ -1,15 +1,27 @@
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new BroadSword());
-console.log(orc.toString());
+
+
+function createPlayer(){
+  var player = new Gauntlet.Combatants.Human();
+   player.playerName = $('#player-name').val();
+   player.setWeapon(new BroadSword());
+   player.generateClass();
+   console.log('Player on click: ', player.toString());
+}
+
+
+// var warrior = new Gauntlet.Combatants.Human();
+// warrior.setWeapon(new WarAxe());
+// warrior.generateClass();  // This will be used for "Surprise me" option
+// console.log(warrior.toString());
+//
+// var orc = new Gauntlet.Combatants.Orc();
+// orc.generateClass();
+// orc.setWeapon(new BroadSword());
+// console.log(orc.toString());
 
 /*
   Test code to generate a spell
@@ -24,6 +36,7 @@ $(document).ready(function() {
    */
   $("#player-setup").show();
 
+  $("#select-name").on('click', createPlayer);
   /*
     When any button with card__link class is clicked,
     move on to the next view.

@@ -16,16 +16,16 @@ Gauntlet.Combatants.Player = function(name) {
   this.playerName = name || "unknown adventurer";
   this.health = Math.floor(Math.random() * 40 + 50);
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
-  this.skinColor = "gray";
-  this.skinColors = [this.skinColor];
+  // this.skinColor = "gray";
+  // this.skinColors = [this.skinColor];
   this.strength = 90;
   this.intelligence = 90;
 
   this.toString = function() {
     var output = [this.playerName,
-      ": a ",
-      this.skinColor,
-      " skinned ",
+      " is a ",
+      // this.skinColor,
+      // " skinned ",
       this.species,
       " ",
       this.class,
@@ -60,7 +60,7 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
 };
 
 /*
-  Define the base properties for a human in a 
+  Define the base properties for a human in a
   constructor function.
  */
 Gauntlet.Combatants.Human = function() {
@@ -69,9 +69,9 @@ Gauntlet.Combatants.Human = function() {
   this.species = "Human";
   this.intelligence = this.intelligence + 20;
 
-  this.skinColors.push("brown", "red", "white", "disease");
-  randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
-  this.skinColor = this.skinColors[randomSkin];
+  //this.skinColors.push("brown", "red", "white", "disease");
+  //randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
+  //this.skinColor = this.skinColors[randomSkin];
 
   this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
 };
@@ -79,7 +79,7 @@ Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
 
 /*
-  Define the base properties for a monster in a 
+  Define the base properties for a monster in a
   constructor function.
  */
 Gauntlet.Combatants.Monster = function() {
@@ -89,4 +89,3 @@ Gauntlet.Combatants.Monster = function() {
 };
 
 Gauntlet.Combatants.Monster.prototype = new Gauntlet.Combatants.Player();
-
