@@ -1,20 +1,21 @@
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new Gauntlet.Arsenal.WarAxe());
+var Gauntlet = (function(gauntlet) {
+var warrior = new gauntlet.Combatants.Human();
+warrior.setWeapon(new gauntlet.Arsenal.WarAxe());
 warrior.generateClass();  // This will be used for "Surprise me" option
 console.log(warrior.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
+var orc = new gauntlet.Combatants.Orc();
 orc.generateClass();
-orc.setWeapon(new Gauntlet.Arsenal.BroadSword());
+orc.setWeapon(new gauntlet.Arsenal.BroadSword());
 console.log(orc.toString());
 
 /*
   Test code to generate a spell
  */
-var spell = new Gauntlet.SpellBook.Sphere();
+var spell = new gauntlet.SpellBook.Sphere();
 console.log("spell: ", spell.toString());
 
 
@@ -57,3 +58,5 @@ $(document).ready(function() {
   });
 
 });
+return gauntlet
+})(Gauntlet || {});
