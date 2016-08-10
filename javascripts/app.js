@@ -2,6 +2,25 @@
   Test code to generate a human player and an orc player
  */
 
+$('body').on('click', function(evt){
+    var selectedClass;
+      switch(evt.target.innerHTML){
+        case 'Warrior':
+          selectedClass = 'Warrior';
+          break;
+        case 'Wizard':
+          selectedClass = 'Wizard';
+          break;
+        default:
+          selectedClass = 'random';
+          break;
+      }
+
+    player.generateClass(selectedClass);
+    console.log('selectedClass ' , selectedClass);
+});
+
+
 
 var Gauntlet = (function(gauntlet) {
 
@@ -10,7 +29,7 @@ function createPlayer(){
   var player = new gauntlet.Combatants.Human();
    player.playerName = $('#player-name').val();
    player.setWeapon(new gauntlet.Arsenal.BroadSword());
-   player.generateClass();
+   //player.generateClass();
    console.log('Player on click: ', player.toString());
 }
 
@@ -65,4 +84,3 @@ $(document).ready(function() {
 });
 return gauntlet
 })(Gauntlet || {});
-
