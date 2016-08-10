@@ -1,0 +1,24 @@
+{
+  "name": "https-github-com-nashville-software-school-gauntlet-daviddaynegarrett",
+  "version": "1.0.0",
+  "description": "Time to use protypal inheritance to build a game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/issues"
+  },
+  "homepage": "https://github.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "http-server": "^0.9.0"
+  }
+}
