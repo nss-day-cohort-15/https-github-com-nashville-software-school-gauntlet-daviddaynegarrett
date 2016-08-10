@@ -1,10 +1,10 @@
 
-var Gauntlet = Gauntlet || {};
-Gauntlet.Arsenal = {};
+var Gauntlet = (function(gauntlet) {
+gauntlet.Arsenal = {};
 
 
 
-Gauntlet.Arsenal.Weapon = function() {
+gauntlet.Arsenal.Weapon = function() {
   this.name = "bare hands";
   this.damage = 1;
   this.hands = 2;
@@ -14,23 +14,25 @@ Gauntlet.Arsenal.Weapon = function() {
   }
 };
 
-Gauntlet.Arsenal.Dagger = function() {
+gauntlet.Arsenal.Dagger = function() {
   this.name = "dagger";
   this.damage = 4;
   this.hands = 1;
 };
-Gauntlet.Arsenal.Dagger.prototype = new Gauntlet.Arsenal.Weapon();
+gauntlet.Arsenal.Dagger.prototype = new gauntlet.Arsenal.Weapon();
 
-Gauntlet.Arsenal.BroadSword = function() {
+gauntlet.Arsenal.BroadSword = function() {
   this.name = "broad sword";
   this.damage = 14;
   this.hands = 2;
 };
-Gauntlet.Arsenal.BroadSword.prototype = new Gauntlet.Arsenal.Weapon();
+gauntlet.Arsenal.BroadSword.prototype = new gauntlet.Arsenal.Weapon();
 
-Gauntlet.Arsenal.WarAxe = function() {
+gauntlet.Arsenal.WarAxe = function() {
   this.name = "war axe";
   this.damage = 18;
   this.hands = 2;
 };
-Gauntlet.Arsenal.WarAxe.prototype = new Gauntlet.Arsenal.Weapon();
+gauntlet.Arsenal.WarAxe.prototype = new gauntlet.Arsenal.Weapon();
+return gauntlet
+})(Gauntlet || {});
