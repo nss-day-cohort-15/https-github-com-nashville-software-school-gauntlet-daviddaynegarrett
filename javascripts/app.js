@@ -38,8 +38,7 @@ var Gauntlet = (function(gauntlet) {
        $('.nssMode').prop('disabled', true);
        player.attack(badGuy);
        displayPlayers();
-       //check health determine winner
-       if(player.health > 0 || badGuy.health > 0){
+
          setTimeout(function(){
            badGuy.attack(player);
            displayPlayers();
@@ -47,7 +46,7 @@ var Gauntlet = (function(gauntlet) {
            $('.nssMode').prop('disabled', false);
 
          },3000);
-       }
+
      });
 
      $('.nssMode').on('click', function () {
@@ -127,6 +126,14 @@ var Gauntlet = (function(gauntlet) {
       $("." + previousCard).show();
     });
   });
+
+  gauntlet.getPlayer = function(){
+    return player;
+  }
+
+  gauntlet.getBadGuy = function(){
+    return badGuy;
+  }
 
   return gauntlet
 

@@ -52,7 +52,7 @@ var Gauntlet = (function(gauntlet) {
             timer: 2000
         });
 
-    if(this.health <= 0){
+    if(gauntlet.getPlayer().health <= 0){
       swal({
         title: "You lose!",
         text: "Maybe this isn't for you after all",
@@ -60,7 +60,7 @@ var Gauntlet = (function(gauntlet) {
         showCancelButton: false,
         showConfirmButton: false,
       });
-    } else if (enemyObj.health <= 0){
+    } else if (gauntlet.getBadGuy().health <= 0){
       swal({
         title: "You Win!",
         text: "You might actually make a career out of this!",
