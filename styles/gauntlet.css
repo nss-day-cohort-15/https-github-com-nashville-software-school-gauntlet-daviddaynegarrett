@@ -127,3 +127,7 @@ body {
 .playerName {
   margin-top: 4rem;
 }
+
+.stats {
+  font-size: 75%;
+}
