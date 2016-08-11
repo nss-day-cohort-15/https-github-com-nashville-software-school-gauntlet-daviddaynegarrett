@@ -6,16 +6,34 @@
 
 var Gauntlet = (function(gauntlet) {
 
+  //create player
+  var player = new gauntlet.Combatants.Human();
+  var classCards;
+
+  player.allowedClasses.forEach((e,i) => classCards += buildCard(e,i));
+
+    $('#class-card').append(classCards);
+
+
+  //DOM builder
+  function buildCard(allowedClass, count){
+    return `${count % 4 === 0 ? '<div class="col-sm-4">': ''}
+              <div class="card__button">
+                <a class="class__link btn btn--big btn--blue" href="#">
+                  <span class="btn__prompt">></span>
+                  <span class="btn__text">${allowedClass}</span>
+                </a>
+              </div>
+            ${(count % 4 === 0 && count !== 0) ? '</div>': ''}`;
+  }
+
   //create enemy (will need to make random)
   var orc = new gauntlet.Combatants.Orc();
   orc.setClass(orc);
   orc.setWeapon(orc);
   console.log(orc.toString());
-  
-  console.log(orc);
 
-  //create player
-  var player = new gauntlet.Combatants.Human();
+  console.log(orc);
 
   $(document).ready(function() {
     //get selected name and add to player
