@@ -50,10 +50,10 @@ var Gauntlet = (function(gauntlet) {
 
     if(this.health <= 0){
       console.log('You lose!');
-      alert('You lose!');
+      swal("You lose!", "Maybe this isn't for you after all", "error");
     } else if (enemyObj.health <= 0){
       console.log('You WIN!');
-      alert('You WIN!');
+      swal("You Win!", "You might actually make a career out of this!", "success")
     }
 
   }
