@@ -36,6 +36,10 @@ var Gauntlet = (function(gauntlet) {
        clearTimeout();
      });
 
+     $('.nssMode').on('click', function () {
+        player.nssMode(badGuy);
+     });
+
      var timeoutID;
 
      function badGuyAttack(){

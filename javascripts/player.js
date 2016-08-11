@@ -58,6 +58,26 @@ var Gauntlet = (function(gauntlet) {
 
   }
 
+    gauntlet.Combatants.Player.prototype.nssMode = function(enemyObj){
+    enemyObj.health = enemyObj.health - enemyObj.health;
+
+    console.log(`${this.playerName} (You) attacked ${enemyObj.name|| 'Guil H'} (enemy) with a ${this.weapon.name}`);
+    console.log(`Your health is ${this.health}`);
+    console.log(`Your enemies health is ${enemyObj.health}`);
+
+
+    if(this.health <= 0){
+      console.log('You lose!');
+      swal("You lose!", "Maybe this isn't for you after all", "error");
+    } else if (enemyObj.health <= 0){
+      console.log('You WIN!');
+      swal("You Win!", "NSS is a great shortcut! Strong choice!", "success")
+    }
+
+  }
+
+
+
   gauntlet.Combatants.Player.prototype.setWeapon = function(selectedWeapon) {
     this.weapon = new gauntlet.Arsenal[selectedWeapon]();
   }
