@@ -21,7 +21,7 @@ body {
 /*
   Section styles
  */
-.card { 
+.card {
   display: none;
 }
 
@@ -102,4 +102,28 @@ body {
 .btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
+}
+
+.placeForBadGuy {
+  text-align: right;
+}
+
+.combatPicture {
+  height: 50%;
+  width:40%;
+}
+
+.placeForPlayer .combatPicture {
+  margin-left:3rem;
+}
+
+.placeForBadGuy .combatPicture {
+  margin-right: 3rem;
+}
+
+.battleGroundTop {
+  text-decoration: underline;
+}
+.playerName {
+  margin-top: 4rem;
 }
