@@ -39,44 +39,49 @@ var Gauntlet = (function(gauntlet) {
   };
 
   gauntlet.Combatants.Player.prototype.attack = function(enemyObj){
+
     var randomDamage = Math.ceil(Math.random() * this.weapon.damage);
-
-    swal("Boom!", `${enemyObj.playerName} was attacked by ${this.playerName} causing ${randomDamage} damage!`);
-
     enemyObj.health = enemyObj.health - randomDamage;
 
-    console.log(`${this.playerName} (You) attacked ${enemyObj.name|| 'Guil H'} (enemy) with a ${this.weapon.name} that had ${randomDamage}.`);
-    console.log(`Your health is ${this.health}`);
-    console.log(`Your enemies health is ${enemyObj.health}`);
-
+    swal({
+            title :"Boom!",
+            text :`${enemyObj.playerName} was attacked by ${this.playerName} causing ${randomDamage} damage!`,
+            type: "warning",
+            showCancelButton: false,
+            showConfirmButton: false,
+            timer: 2000
+        });
 
     if(this.health <= 0){
-      console.log('You lose!');
-      swal("You lose!", "Maybe this isn't for you after all", "error");
+      swal({
+        title: "You lose!",
+        text: "Maybe this isn't for you after all",
+        type: "error",
+        showCancelButton: false,
+        showConfirmButton: false,
+      });
     } else if (enemyObj.health <= 0){
-      console.log('You WIN!');
-      swal("You Win!", "You might actually make a career out of this!", "success")
+      swal({
+        title: "You Win!",
+        text: "You might actually make a career out of this!",
+        type: "success",
+        showCancelButton: false,
+        showConfirmButton: false,
+      });
     }
-
   }
 
     gauntlet.Combatants.Player.prototype.nssMode = function(enemyObj){
-    enemyObj.health = enemyObj.health - enemyObj.health;
+      enemyObj.health = 0;
 
-    console.log(`${this.playerName} (You) attacked ${enemyObj.name|| 'Guil H'} (enemy) with a ${this.weapon.name}`);
-    console.log(`Your health is ${this.health}`);
-    console.log(`Your enemies health is ${enemyObj.health}`);
-
-
-    if(this.health <= 0){
-      console.log('You lose!');
-      swal("You lose!", "Maybe this isn't for you after all", "error");
-    } else if (enemyObj.health <= 0){
-      console.log('You WIN!');
-      swal("You Win!", "NSS is a great shortcut! Strong choice!", "success")
+      swal({
+        title: "You Win!",
+        text: "NSS is a great shortcut! Strong choice!",
+        type: "success",
+        showCancelButton: false,
+        showConfirmButton: false,
+      });
     }
-
-  }
 
 
 

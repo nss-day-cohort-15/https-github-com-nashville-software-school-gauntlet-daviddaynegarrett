@@ -34,26 +34,26 @@ var Gauntlet = (function(gauntlet) {
      });
 
      $('.attack').on('click', function(){
-       var timeoutID;
-
+       $(this).prop('disabled', true);
+       $('.nssMode').prop('disabled', true);
        player.attack(badGuy);
        displayPlayers();
-       badGuyAttack();
-       clearTimeout(timeoutID);
+       //check health determine winner
+       if(player.health > 0 || badGuy.health > 0){
+         setTimeout(function(){
+           badGuy.attack(player);
+           displayPlayers();
+           $('.attack').prop('disabled', false);
+           $('.nssMode').prop('disabled', false);
+
+         },3000);
+       }
      });
 
      $('.nssMode').on('click', function () {
         player.nssMode(badGuy);
+        displayPlayers();
      });
-
-     var timeoutID;
-
-     function badGuyAttack(){
-       timeoutID = window.setTimeout(function(){
-          badGuy.attack(player), 2000;
-          displayPlayers();
-        });
-     }
 
      function displayPlayers(){
 
