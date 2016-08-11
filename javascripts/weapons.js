@@ -4,7 +4,7 @@
 //War Axe was changed to Sublime
 
 var Gauntlet = (function(gauntlet) {
-<<<<<<< HEAD
+
 gauntlet.Arsenal = {};
 
 

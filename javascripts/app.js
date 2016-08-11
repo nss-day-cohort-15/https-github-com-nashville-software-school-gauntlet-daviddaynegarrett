@@ -7,12 +7,12 @@
 var Gauntlet = (function(gauntlet) {
 
   //create enemy (will need to make random)
-  var orc = new gauntlet.Combatants.Orc();
-  orc.setClass(orc);
-  orc.setWeapon(orc);
-  console.log(orc.toString());
-  
-  console.log(orc);
+  var badGuy = new gauntlet.Combatants.ImposterSyndrome();
+  badGuy.setClass(badGuy);
+  badGuy.setWeapon(badGuy);
+  console.log(badGuy.toString());
+
+  console.log(badGuy);
 
   //create player
   var player = new gauntlet.Combatants.Human();

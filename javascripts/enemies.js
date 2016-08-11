@@ -2,17 +2,16 @@
 var Gauntlet = (function(gauntlet){
 
 
-  gauntlet.Combatants.ImposterSyndorome = function() {
+  gauntlet.Combatants.ImposterSyndrome = function() {
   this.health = this.health + 20;
   this.species = "ImposterSyndorome";
-  this.allowedClasses = ["StartupCeo"];
-
-  Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
+  this.allowedClasses = ["StartupCeo", "JavaScriptDeveloper"];
+  this.allowedWeapons = ["Atom","Vim", "Sublime"];
 
   }
 
 
-Gauntlet.Combatants.ImposterSyndorome.prototype = new Gauntlet.Combatants.Monster();
+Gauntlet.Combatants.ImposterSyndrome.prototype = new Gauntlet.Combatants.Monster();
 
   return gauntlet;
 
