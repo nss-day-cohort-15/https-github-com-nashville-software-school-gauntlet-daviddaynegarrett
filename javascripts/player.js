@@ -61,7 +61,7 @@ gauntlet.Combatants.Player.prototype.generateClass = function(SelectedClass) {
   this.health += this.class.healthBonus;
   return this.class;
   } else {
-    this.class = new gauntlet.GuildHall[SelectedClass]();
+    this.class = new gauntlet.GuildHall[SelectedClass.replace(/\W/g,'')]();
              // = new gauntlet.GuildHall.Warrior();
 }
 

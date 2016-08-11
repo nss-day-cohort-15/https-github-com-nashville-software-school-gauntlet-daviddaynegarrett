@@ -48,12 +48,12 @@ gauntlet.GuildHall.RubyOnRails = function() {
 gauntlet.GuildHall.RubyOnRails.prototype = new gauntlet.GuildHall.Developer();
 
 
-gauntlet.GuildHall.C# = function() {
-  this.name = "C#";
+gauntlet.GuildHall.CSharp = function() {
+  this.name = "CSharp";
   this.healthBonus = this.healthBonus + 35;
   this.strengthBonus = this.strengthBonus + 20;
 };
-gauntlet.GuildHall.C#.prototype = new gauntlet.GuildHall.Developer();
+gauntlet.GuildHall.CSharp.prototype = new gauntlet.GuildHall.Developer();
 
 
 

@@ -1,7 +1,7 @@
-Gauntlet.Combatants.Orc = function() {
+Gauntlet.Combatants.ImposterSyndorome = function() {
   this.health = this.health + 20;
-  this.species = "Orc";
-  this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
+  this.species = "ImposterSyndorome";
+  this.allowedClasses = ["StartupCeo"];
 
   this.generateClass = function() {
     // Get a random index from the allowed classes array
@@ -16,5 +16,5 @@ Gauntlet.Combatants.Orc = function() {
   }
 };
 
-Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
+Gauntlet.Combatants.ImposterSyndorome.prototype = new Gauntlet.Combatants.Monster();
 
