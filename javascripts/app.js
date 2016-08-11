@@ -42,13 +42,18 @@ var Gauntlet = (function(gauntlet) {
             moveAlong = ($("#player-name").val() !== "");
             break;
           case "card--weapon":
-            moveAlong = ($("#player-name").val() !== "");
+            moveAlong = (player.class != null);
+            break;
+          case 'card--battleground':
+            moveAlong = (player.weapon != null);
             break;
         }
 
         if (moveAlong) {
           $(".card").hide();
           $("." + nextCard).show();
+        } else {
+          alert('Must make a selection to fight!');
         }
       });
 
