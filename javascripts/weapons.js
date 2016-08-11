@@ -4,6 +4,7 @@
 //War Axe was changed to Sublime
 
 var Gauntlet = (function(gauntlet) {
+<<<<<<< HEAD
 gauntlet.Arsenal = {};
 
 
@@ -62,4 +63,5 @@ gauntlet.Arsenal.Nagging = function() {
 gauntlet.Arsenal.Nagging.prototype = new gauntlet.Arsenal.Weapon();
 
 return gauntlet
+
 })(Gauntlet || {});

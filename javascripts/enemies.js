@@ -1,20 +1,20 @@
-Gauntlet.Combatants.ImposterSyndorome = function() {
+
+var Gauntlet = (function(gauntlet){
+
+
+  gauntlet.Combatants.ImposterSyndorome = function() {
   this.health = this.health + 20;
   this.species = "ImposterSyndorome";
   this.allowedClasses = ["StartupCeo"];
 
-  this.generateClass = function() {
-    // Get a random index from the allowed classes array
-    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+  Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
 
-    // Get the string at the index
-    var randomClass = this.allowedClasses[random];
-
-    // Composes the corresponding player class into the player object
-    this.class = new Gauntlet.GuildHall[randomClass]();
-    return this.class;
   }
-};
+
 
 Gauntlet.Combatants.ImposterSyndorome.prototype = new Gauntlet.Combatants.Monster();
 
+  return gauntlet;
+
+
+})(Gauntlet || {})

@@ -1,23 +1,22 @@
-/*
-  TODO: Modularize this code with IIFE or Browserify
- */
+
 var Gauntlet = (function(gauntlet) {
-gauntlet.GuildHall = {};
+  gauntlet.GuildHall = {};
 
-/*
-  Base function for a player, or enemy, class (profession)
- */
-gauntlet.GuildHall.PlayerClass = function() {
-  this.name = "Beggar";
-  this.healthBonus = 0;
-  this.strengthBonus = 0;
-  this.intelligenceBonus = 0;
-  this.magical = false;
+  /*
+    Base function for a player, or enemy, class (profession)
+   */
+  gauntlet.GuildHall.PlayerClass = function() {
+    this.name = "Beggar";
+    this.healthBonus = 0;
+    this.strengthBonus = 0;
+    this.intelligenceBonus = 0;
+    this.magical = false;
 
-  this.toString = function() {
-    return this.name;
-  }
-};
+    this.toString = function() {
+      return this.name;
+    }
+  };
+
 
 /*
     Developer CLASSES
@@ -25,6 +24,7 @@ gauntlet.GuildHall.PlayerClass = function() {
       - RubyOnRails/Valkaryie
       - C#/Beserker
  */
+
 gauntlet.GuildHall.Developer = function() {
   this.healthBonus = 20;
   this.strengthBonus = 10;
@@ -54,9 +54,6 @@ gauntlet.GuildHall.CSharpDeveloper = function() {
   this.strengthBonus = this.strengthBonus + 20;
 };
 gauntlet.GuildHall.CSharpDeveloper.prototype = new gauntlet.GuildHall.Developer();
-
-
-
 
 
 /*
