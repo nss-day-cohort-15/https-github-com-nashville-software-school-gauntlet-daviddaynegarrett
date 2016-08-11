@@ -41,7 +41,7 @@ gauntlet.Combatants.Player = function(name) {
 };
 
 gauntlet.Combatants.Player.prototype.setWeapon = function(selectedWeapon) {
-  this.weapon = new gauntlet.Arsenal[selectedWeapon.replace(/\W/g,'')]();
+  this.weapon = new gauntlet.Arsenal[selectedWeapon]();
 }
 
 gauntlet.Combatants.Player.prototype.generateClass = function(SelectedClass) {
