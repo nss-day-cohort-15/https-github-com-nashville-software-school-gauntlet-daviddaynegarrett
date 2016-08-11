@@ -75,7 +75,8 @@ var Gauntlet = (function(gauntlet) {
           $(".card").hide();
           $("." + nextCard).show();
         } else {
-          alert('Must make a selection to fight!');
+          swal("Oops!", "You must make a selection to fight!", "error");
+
         }
 
       if (moveAlong) {
