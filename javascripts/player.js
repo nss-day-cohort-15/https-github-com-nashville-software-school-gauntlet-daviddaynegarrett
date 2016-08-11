@@ -91,7 +91,7 @@ gauntlet.Combatants.Human.prototype = new gauntlet.Combatants.Player();
  */
 gauntlet.Combatants.Monster = function() {
   this.health = this.health - 30;
-  this.intelligence = this.intelligence -20;
+  this.intelligence = this.intelligence - 20;
   this.strength = this.strength + 30;
 };
 
