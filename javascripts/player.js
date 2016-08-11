@@ -39,17 +39,19 @@ var Gauntlet = (function(gauntlet) {
   };
 
   gauntlet.Combatants.Player.prototype.attack = function(enemyObj){
-    var randomDamage = Math.ceil(Math.random() * enemyObj.weapon.damage);
+    var randomDamage = Math.ceil(Math.random() * this.weapon.damage);
 
-    this.health = this.health - randomDamage;
+    enemyObj.health = enemyObj.health - randomDamage;
 
-    console.log(`${enemyObj.name} attached you with a ${enemyObj.weapon.name} that had ${randomDamage}.`);
+    console.log(`${this.playerName} (You) attacked ${enemyObj.name|| 'Guil H'} (enemy) with a ${this.weapon.name} that had ${randomDamage}.`);
     console.log(`Your health is ${this.health}`);
+    console.log(`Your enemies health is ${enemyObj.health}`);
 
-    if(this.health === 0){
+
+    if(this.health <= 0){
       console.log('You lose!');
       alert('You lose!');
-    } else if (enemyObj.health == 0){
+    } else if (enemyObj.health <= 0){
       console.log('You WIN!');
       alert('You WIN!');
     }

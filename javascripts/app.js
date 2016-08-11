@@ -30,6 +30,11 @@ var Gauntlet = (function(gauntlet) {
        console.log(player);
      });
 
+     $('.attack').on('click', function(){
+       player.attack(badGuy);
+       
+     });
+
     /*
       Show the initial view that accepts player name
      */
