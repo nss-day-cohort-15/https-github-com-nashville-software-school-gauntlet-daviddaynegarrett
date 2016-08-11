@@ -11,7 +11,7 @@ gauntlet.Arsenal = {};
 
 gauntlet.Arsenal.Weapon = function() {
   this.name = "nano";
-  this.damage = 1;
+  this.damage = 10;
   this.hands = 2;
 
   this.toString = function() {
@@ -21,21 +21,21 @@ gauntlet.Arsenal.Weapon = function() {
 
 gauntlet.Arsenal.Vim = function() {
   this.name = "Vim";
-  this.damage = 4;
+  this.damage = 15;
   this.hands = 1;
 };
 gauntlet.Arsenal.Vim.prototype = new gauntlet.Arsenal.Weapon();
 
 gauntlet.Arsenal.Atom = function() {
   this.name = "Atom";
-  this.damage = 14;
+  this.damage = 25;
   this.hands = 2;
 };
 gauntlet.Arsenal.Atom.prototype = new gauntlet.Arsenal.Weapon();
 
 gauntlet.Arsenal.Sublime = function() {
   this.name = "Sublime";
-  this.damage = 18;
+  this.damage = 36;
   this.hands = 2;
 };
 gauntlet.Arsenal.Sublime.prototype = new gauntlet.Arsenal.Weapon();
@@ -43,21 +43,21 @@ gauntlet.Arsenal.Sublime.prototype = new gauntlet.Arsenal.Weapon();
 //
 gauntlet.Arsenal.Intern = function() {
   this.name = "Intern";
-  this.damage = 4;
+  this.damage = 5;
   this.hands = 1;
 };
 gauntlet.Arsenal.Intern.prototype = new gauntlet.Arsenal.Weapon();
 
 gauntlet.Arsenal.RulesAndRegulations = function() {
   this.name = "Rules and Regulations";
-  this.damage = 14;
+  this.damage = 20;
   this.hands = 2;
 };
 gauntlet.Arsenal.RulesAndRegulations.prototype = new gauntlet.Arsenal.Weapon();
 
 gauntlet.Arsenal.Nagging = function() {
   this.name = "Nagging";
-  this.damage = 18;
+  this.damage = 45;
   this.hands = 2;
 };
 gauntlet.Arsenal.Nagging.prototype = new gauntlet.Arsenal.Weapon();

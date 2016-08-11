@@ -30,6 +30,22 @@ var Gauntlet = (function(gauntlet) {
        console.log(player);
      });
 
+     $('.attack').on('click', function(){
+       player.attack(badGuy);
+       badGuyAttack();
+       clearTimeout();
+     });
+
+     var timeoutID;
+
+     function badGuyAttack(){
+       timeoutID = window.setTimeout(() => badGuy.attack(player), 2000);
+     }
+
+     function clearAlert() {
+        clearTimeout(timeoutID);
+     }
+
     /*
       Show the initial view that accepts player name
      */

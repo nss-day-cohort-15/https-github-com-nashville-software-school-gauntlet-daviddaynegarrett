@@ -38,6 +38,26 @@ var Gauntlet = (function(gauntlet) {
     };
   };
 
+  gauntlet.Combatants.Player.prototype.attack = function(enemyObj){
+    var randomDamage = Math.ceil(Math.random() * this.weapon.damage);
+
+    enemyObj.health = enemyObj.health - randomDamage;
+
+    console.log(`${this.playerName} (You) attacked ${enemyObj.name|| 'Guil H'} (enemy) with a ${this.weapon.name} that had ${randomDamage}.`);
+    console.log(`Your health is ${this.health}`);
+    console.log(`Your enemies health is ${enemyObj.health}`);
+
+
+    if(this.health <= 0){
+      console.log('You lose!');
+      alert('You lose!');
+    } else if (enemyObj.health <= 0){
+      console.log('You WIN!');
+      alert('You WIN!');
+    }
+
+  }
+
   gauntlet.Combatants.Player.prototype.setWeapon = function(selectedWeapon) {
     this.weapon = new gauntlet.Arsenal[selectedWeapon]();
   }
