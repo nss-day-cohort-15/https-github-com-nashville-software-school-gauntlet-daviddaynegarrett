@@ -1,158 +1,142 @@
-/*
-  TODO: Modularize this code with IIFE or Browserify
- */
+
 var Gauntlet = (function(gauntlet) {
-gauntlet.GuildHall = {};
+  gauntlet.GuildHall = {};
+
+  /*
+    Base function for a player, or enemy, class (profession)
+   */
+  gauntlet.GuildHall.PlayerClass = function() {
+    this.name = "Beggar";
+    this.healthBonus = 0;
+    this.strengthBonus = 0;
+    this.intelligenceBonus = 0;
+    this.magical = false;
+
+    this.toString = function() {
+      return this.name;
+    }
+  };
+
 
 /*
-  Base function for a player, or enemy, class (profession)
+    Developer CLASSES
+      - JavaScript/Warrior
+      - RubyOnRails/Valkaryie
+      - C#/Beserker
  */
-gauntlet.GuildHall.PlayerClass = function() {
-  this.name = "Beggar";
-  this.healthBonus = 0;
-  this.strengthBonus = 0;
-  this.intelligenceBonus = 0;
-  this.magical = false;
 
-  this.toString = function() {
-    return this.name;
-  }
-};
-
-/*
-    FIGHTER CLASSES
-      - Warrior
-      - Valkyrie
-      - Berserker
-      - Monk
- */
-gauntlet.GuildHall.Fighter = function() {
+gauntlet.GuildHall.Developer = function() {
   this.healthBonus = 20;
   this.strengthBonus = 10;
 };
-gauntlet.GuildHall.Fighter.prototype = new gauntlet.GuildHall.PlayerClass();
+gauntlet.GuildHall.Developer.prototype = new gauntlet.GuildHall.PlayerClass();
 
 
-gauntlet.GuildHall.Warrior = function() {
-  this.name = "Warrior";
+gauntlet.GuildHall.JavaScriptDeveloper = function() {
+  this.name = "JavaScript Developer";
   this.healthBonus = this.healthBonus + 25;
   this.strengthBonus = this.strengthBonus + 30;
 };
-gauntlet.GuildHall.Warrior.prototype = new gauntlet.GuildHall.Fighter();
+gauntlet.GuildHall.JavaScriptDeveloper.prototype = new gauntlet.GuildHall.Developer();
 
 
-gauntlet.GuildHall.Valkyrie = function() {
-  this.name = "Valkyrie";
+gauntlet.GuildHall.RubyOnRailsDeveloper = function() {
+  this.name = "RubyOnRails Developer";
   this.healthBonus = this.healthBonus + 20;
   this.strengthBonus = this.strengthBonus + 10;
 };
-gauntlet.GuildHall.Valkyrie.prototype = new gauntlet.GuildHall.Fighter();
+gauntlet.GuildHall.RubyOnRailsDeveloper.prototype = new gauntlet.GuildHall.Developer();
 
 
-gauntlet.GuildHall.Berserker = function() {
-  this.name = "Berserker";
+gauntlet.GuildHall.CSharpDeveloper = function() {
+  this.name = "CSharp";
   this.healthBonus = this.healthBonus + 35;
   this.strengthBonus = this.strengthBonus + 20;
 };
-gauntlet.GuildHall.Berserker.prototype = new gauntlet.GuildHall.Fighter();
-
-
-gauntlet.GuildHall.Monk = function() {
-  this.name = "Monk";
-  this.healthBonus = this.healthBonus + 10;
-  this.strengthBonus = this.strengthBonus + 40;
-};
-gauntlet.GuildHall.Monk.prototype = new gauntlet.GuildHall.Fighter();
+gauntlet.GuildHall.CSharpDeveloper.prototype = new gauntlet.GuildHall.Developer();
 
 
 /*
-    MAGICAL CLASSES
-      - Shaman
-      - Wizard
-      - Conujurer
-      - Sorcerer
+    MAGICAL/Designer Class
+      - SASSDesigner/Shaman
+      - WordpressDesigner/Wizard
+      - AdobePhotoShopDesigner/Conjurer
  */
-gauntlet.GuildHall.Mage = function() {
-  this.name = "Mage";
+gauntlet.GuildHall.Designer = function() {
+  this.name = "Designer";
   this.magical = true;
   this.healthBonus = this.healthBonus - 10;
   this.strengthBonus = this.strengthBonus - 20;
   this.intelligenceBonus = this.intelligenceBonus + 20;
 };
-gauntlet.GuildHall.Mage.prototype = new gauntlet.GuildHall.PlayerClass();
+gauntlet.GuildHall.Designer.prototype = new gauntlet.GuildHall.PlayerClass();
 
 
-gauntlet.GuildHall.Shaman = function() {
-  this.name = "Shaman";
+gauntlet.GuildHall.SassDesigner = function() {
+  this.name = "SassDesigner";
   this.healthBonus = this.healthBonus + 5;
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 20;
 };
-gauntlet.GuildHall.Shaman.prototype = new gauntlet.GuildHall.Mage();
+gauntlet.GuildHall.SassDesigner.prototype = new gauntlet.GuildHall.Designer();
 
 
-gauntlet.GuildHall.Wizard = function() {
-  this.name = "Wizard";
+gauntlet.GuildHall.WordpressDesigner = function() {
+  this.name = "WordpressDesigner";
   this.healthBonus = this.healthBonus - 15;
   this.strengthBonus = this.strengthBonus - 25;
   this.intelligenceBonus = this.intelligenceBonus + 40;
 };
-gauntlet.GuildHall.Wizard.prototype = new gauntlet.GuildHall.Mage();
+gauntlet.GuildHall.WordpressDesigner.prototype = new gauntlet.GuildHall.Designer();
 
 
-gauntlet.GuildHall.Conjurer = function() {
-  this.name = "Conjurer";
+gauntlet.GuildHall.AdobePhotoshopDesigner = function() {
+  this.name = "AdobePhotoshop Designer";
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 10;
 };
-gauntlet.GuildHall.Conjurer.prototype = new gauntlet.GuildHall.Mage();
+gauntlet.GuildHall.AdobePhotoshopDesigner.prototype = new gauntlet.GuildHall.Designer();
 
-
-gauntlet.GuildHall.Sorcerer = function() {
-  this.name = "Sorcerer";
-  this.healthBonus = this.healthBonus - 5;
-  this.strengthBonus = this.strengthBonus - 20;
-  this.intelligenceBonus = this.intelligenceBonus + 30;
-};
-gauntlet.GuildHall.Sorcerer.prototype = new gauntlet.GuildHall.Mage();
 
 
 /*
-    STEALTH CLASSES
-      - Shadow_warrior
-      - Ninja
-      - Assassin
+    STEALTH CLASSES/DevOps
+      - Ninja/Start-upCEO
+      - Assassin/HR Representative
+      -Shadow Warrior/Customer Service Representative
  */
 
 
- gauntlet.GuildHall.Stealth = function() {
-  this.name = "Stealth";
+ gauntlet.GuildHall.DevOps = function() {
+  this.name = "DevOps";
   this.healthBonus = this.healthBonus + 10;
   this.intelligenceBonus = this.intelligenceBonus + 20;
 };
-gauntlet.GuildHall.Stealth.prototype = new gauntlet.GuildHall.PlayerClass();
+gauntlet.GuildHall.DevOps.prototype = new gauntlet.GuildHall.PlayerClass();
 
-gauntlet.GuildHall.Ninja = function() {
-  this.name = 'Ninja';
+gauntlet.GuildHall.StartupCeo = function() {
+  this.name = 'Start-up CEO';
   this.healthBonus = this.healthBonus + 5;
   this.intelligenceBonus = this.intelligenceBonus - 5;
   this.strengthBonus = this.strengthBonus + 5;
 }
-gauntlet.GuildHall.Ninja.prototype = new gauntlet.GuildHall.Stealth();
+gauntlet.GuildHall.StartupCeo.prototype = new gauntlet.GuildHall.DevOps();
 
-gauntlet.GuildHall.Assassin = function () {
-  this.name = "Assassin";
+gauntlet.GuildHall.HRRepresentative = function () {
+  this.name = "HR Representative";
   this.intelligenceBonus = this.intelligenceBonus + 10;
   this.strengthBonus = this.strengthBonus - 5;
 }
-gauntlet.GuildHall.Assassin.prototype = new gauntlet.GuildHall.Stealth();
+gauntlet.GuildHall.HRRepresentative.prototype = new gauntlet.GuildHall.DevOps();
 
-gauntlet.GuildHall.Shadow_Warrior = function () {
-  this.name = "Shadow Warrior";
+gauntlet.GuildHall.CustomerServiceRep = function () {
+  this.name = "Customer Service Rep";
   this.healthBonus = this.healthBonus + 10;
   this.intelligenceBonus = this.intelligenceBonus - 10;
   this.strengthBonus = this.strengthBonus + 10;
 }
+gauntlet.GuildHall.CustomerServiceRep.prototype = new gauntlet.GuildHall.DevOps();
+
 
  return gauntlet
 })(Gauntlet || {});
