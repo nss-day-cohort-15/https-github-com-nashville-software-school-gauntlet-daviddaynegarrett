@@ -43,14 +43,24 @@ var Gauntlet = (function(gauntlet) {
       var nextCard = $(this).attr("next");
       var moveAlong = false;
 
-      switch (nextCard) {
-        case "card--class":
-          moveAlong = ($("#player-name").val() !== "");
-          break;
-        case "card--weapon":
-          moveAlong = ($("#player-name").val() !== "");
-          break;
-      }
+        switch (nextCard) {
+          case "card--class":
+            moveAlong = ($("#player-name").val() !== "");
+            break;
+          case "card--weapon":
+            moveAlong = (player.class != null);
+            break;
+          case 'card--battleground':
+            moveAlong = (player.weapon != null);
+            break;
+        }
+
+        if (moveAlong) {
+          $(".card").hide();
+          $("." + nextCard).show();
+        } else {
+          alert('Must make a selection to fight!');
+        }
 
       if (moveAlong) {
         $(".card").hide();
@@ -66,8 +76,8 @@ var Gauntlet = (function(gauntlet) {
       $(".card").hide();
       $("." + previousCard).show();
     });
-
   });
+
   return gauntlet
 
 })(Gauntlet || {});
