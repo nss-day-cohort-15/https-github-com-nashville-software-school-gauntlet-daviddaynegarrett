@@ -26,26 +26,22 @@ var Gauntlet = (function(gauntlet) {
 
     //get selected weapon and add to player
     $('#weapon-card').on('click', function(evt){
-       player.setWeapon(evt.target.innerHTML.replace(/\W/g,''))
+       player.setWeapon(evt.target.innerHTML.replace(/\W/g,''));
+
        console.log(player);
      });
 
      $('.attack').on('click', function(){
+       var timeoutID;
+
        player.attack(badGuy);
        badGuyAttack();
-       clearTimeout();
+       clearTimeout(timeoutID);
      });
-
-     var timeoutID;
 
      function badGuyAttack(){
        timeoutID = window.setTimeout(() => badGuy.attack(player), 2000);
      }
-
-     function clearAlert() {
-        clearTimeout(timeoutID);
-     }
-
     /*
       Show the initial view that accepts player name
      */
