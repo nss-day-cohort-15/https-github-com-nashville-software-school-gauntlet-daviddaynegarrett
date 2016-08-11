@@ -6,7 +6,7 @@ var Gauntlet = (function(gauntlet){
   this.health = this.health + 20;
   this.species = "ImposterSyndorome";
   this.allowedClasses = ["StartupCeo", "JavaScriptDeveloper"];
-  this.allowedWeapons = ["Atom","Vim", "Sublime"];
+  this.allowedWeapons = ["Atom","Vim", "Sublime", "Intern", "RulesAndRegulations", "Nagging"];
 
   }
 

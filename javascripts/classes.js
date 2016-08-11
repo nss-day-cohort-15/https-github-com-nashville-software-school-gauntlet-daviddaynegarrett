@@ -72,13 +72,13 @@ gauntlet.GuildHall.Designer = function() {
 gauntlet.GuildHall.Designer.prototype = new gauntlet.GuildHall.PlayerClass();
 
 
-gauntlet.GuildHall.SassDesigner = function() {
-  this.name = "SassDesigner";
+gauntlet.GuildHall.SASSDesigner = function() {
+  this.name = "SASSDesigner";
   this.healthBonus = this.healthBonus + 5;
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 20;
 };
-gauntlet.GuildHall.SassDesigner.prototype = new gauntlet.GuildHall.Designer();
+gauntlet.GuildHall.SASSDesigner.prototype = new gauntlet.GuildHall.Designer();
 
 
 gauntlet.GuildHall.WordpressDesigner = function() {
