@@ -8,9 +8,11 @@ warrior.generateClass();  // This will be used for "Surprise me" option
 console.log(warrior.toString());
 
 var orc = new gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new gauntlet.Arsenal.BroadSword());
+orc.generateClass(orc);
+orc.generateWeapon(orc);
 console.log(orc.toString());
+
+console.log(orc);
 
 /*
   Test code to generate a spell

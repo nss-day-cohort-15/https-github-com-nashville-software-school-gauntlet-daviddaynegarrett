@@ -3,23 +3,13 @@ var Gauntlet = (function(gauntlet){
   gauntlet.Combatants.Orc = function() {
     this.health = this.health + 20;
     this.species = "Orc";
+    //array used to determine classes for enemy
     this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
-
-    this.generateClass = function() {
-      // Get a random index from the allowed classes array
-      var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
-
-      // Get the string at the index
-      var randomClass = this.allowedClasses[random];
-
-      // Composes the corresponding player class into the player object
-      this.class = new gauntlet.GuildHall[randomClass]();
-      return this.class;
-    }
+    //array used to determine weapon for enemy
+    this.allowedWeapons = ["Dagger", "BroadSword"];
   };
 
   Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
-
 
   return gauntlet;
 

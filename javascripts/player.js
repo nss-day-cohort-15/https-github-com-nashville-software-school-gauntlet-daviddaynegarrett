@@ -90,5 +90,27 @@ gauntlet.Combatants.Monster = function() {
 
 gauntlet.Combatants.Monster.prototype = new gauntlet.Combatants.Player();
 
+gauntlet.Combatants.Monster.prototype.generateClass = function(obj) {
+  //generates random allowed class for enemy
+  generateHelperFunction('allowedClasses','class','GuildHall', obj);
+}
+
+gauntlet.Combatants.Monster.prototype.generateWeapon = function(obj){
+  //generates random allowed weapon for enemy
+  generateHelperFunction('allowedWeapons','weapon','Arsenal', obj);
+}
+
+gauntlet.Combatants.Monster.prototype.generateSpell = function(obj){
+  //generates random allowed spell for enemy
+  generateHelperFunction('allowedSpells','spell','SpellBook', obj);
+}
+
+function generateHelperFunction(array, prop, construct, obj) {
+    var random = Math.round(Math.random() * (obj[array].length - 1));
+    var randomItem = obj[array][random];
+    obj[prop] = new gauntlet[construct][randomItem]();
+    return obj[prop];
+}
+
 return gauntlet
 })(Gauntlet || {});
