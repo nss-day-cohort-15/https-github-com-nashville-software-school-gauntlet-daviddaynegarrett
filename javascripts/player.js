@@ -45,22 +45,21 @@ var Gauntlet = (function(gauntlet) {
   gauntlet.Combatants.Player.prototype.setClass = function(SelectedClass) {
 
     // Get a random index from the allowed classes array
-    if (SelectedClass === 'random'){
-    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+    if (SelectedClass === 'Surprise Me'){
+      var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
-    // Get the string at the index
-    var randomClass = this.allowedClasses[random];
-                    // = this.allowedClasses[2]
+      // Get the string at the index
+      var randomClass = this.allowedClasses[random];
 
-    // Composes the corresponding player class into the player object
-    this.class = new gauntlet.GuildHall[randomClass]();
+      // Composes the corresponding player class into the player object
+      this.class = new gauntlet.GuildHall[randomClass]();
 
-    // Add the health bonus
-    this.health += this.class.healthBonus;
-    return this.class;
+      // Add the health bonus
+      this.health += this.class.healthBonus;
+      return this.class;
+
     } else {
       this.class = new gauntlet.GuildHall[SelectedClass]();
-               // = new gauntlet.GuildHall.Warrior();
   }
 
   }
@@ -117,5 +116,5 @@ var Gauntlet = (function(gauntlet) {
   }
 
   return gauntlet
-  
+
 })(Gauntlet || {});

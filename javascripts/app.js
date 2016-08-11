@@ -6,13 +6,14 @@
 
 var Gauntlet = (function(gauntlet) {
 
-  //create enemy (will need to make random)
-  var orc = new gauntlet.Combatants.Orc();
-  orc.setClass(orc);
-  orc.setWeapon(orc);
-  console.log(orc.toString());
-
-  console.log(orc);
+  // var random = Math.round(Math.random() * (monster types length - 1));
+  // //create random enemy
+  // var enemy = new gauntlet.Combatants[random]();
+  // enemy.setClass(enemy);
+  // enemy.setWeapon(enemy);
+  // console.log(enemy.toString());
+  //
+  // console.log(enemy);
 
   //create player
   var player = new gauntlet.Combatants.Human();
