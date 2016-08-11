@@ -1,64 +1,73 @@
 /*
-  Test code to generate a human player and an orc player
- */
-var Gauntlet = (function(gauntlet) {
-var warrior = new gauntlet.Combatants.Human();
-warrior.setWeapon(new gauntlet.Arsenal.WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
-
-var orc = new gauntlet.Combatants.Orc();
-orc.generateClass(orc);
-orc.generateWeapon(orc);
-console.log(orc.toString());
-
-console.log(orc);
-
-/*
   Test code to generate a spell
  */
-var spell = new gauntlet.SpellBook.Sphere();
-console.log("spell: ", spell.toString());
+//var spell = new gauntlet.SpellBook.Sphere();
+//console.log("spell: ", spell.toString());
 
+var Gauntlet = (function(gauntlet) {
 
-$(document).ready(function() {
-  /*
-    Show the initial view that accepts player name
-   */
-  $("#player-setup").show();
+  //create enemy (will need to make random)
+  var orc = new gauntlet.Combatants.Orc();
+  orc.setClass(orc);
+  orc.setWeapon(orc);
+  console.log(orc.toString());
 
-  /*
-    When any button with card__link class is clicked,
-    move on to the next view.
-   */
-  $(".card__link").click(function(e) {
-    var nextCard = $(this).attr("next");
-    var moveAlong = false;
+  console.log(orc);
 
-    switch (nextCard) {
-      case "card--class":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-      case "card--weapon":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-    }
+  //create player
+  var player = new gauntlet.Combatants.Human();
 
-    if (moveAlong) {
+  $(document).ready(function() {
+    //get selected name and add to player
+    $("#select-name").on('click', () => player.playerName = $('#player-name').val());
+
+    // get selected class and add to player
+    $('#class-card').on('click', evt => player.setClass(evt.target.innerHTML));
+
+    //get selected weapon and add to player
+    $('#weapon-card').on('click', function(evt){
+       player.setWeapon(evt.target.innerHTML)
+       console.log(player);
+     });
+
+    /*
+      Show the initial view that accepts player name
+     */
+    $("#player-setup").show();
+
+    /*
+      When any button with card__link class is clicked,
+      move on to the next view.
+     */
+    $(".card__link").click(function(e) {
+      var nextCard = $(this).attr("next");
+      var moveAlong = false;
+
+      switch (nextCard) {
+        case "card--class":
+          moveAlong = ($("#player-name").val() !== "");
+          break;
+        case "card--weapon":
+          moveAlong = ($("#player-name").val() !== "");
+          break;
+      }
+
+      if (moveAlong) {
+        $(".card").hide();
+        $("." + nextCard).show();
+      }
+    });
+
+    /*
+      When the back button clicked, move back a view
+     */
+    $(".card__back").click(function(e) {
+      var previousCard = $(this).attr("previous");
       $(".card").hide();
-      $("." + nextCard).show();
-    }
-  });
+      $("." + previousCard).show();
+    });
 
-  /*
-    When the back button clicked, move back a view
-   */
-  $(".card__back").click(function(e) {
-    var previousCard = $(this).attr("previous");
-    $(".card").hide();
-    $("." + previousCard).show();
   });
+  return gauntlet
 
-});
-return gauntlet
 })(Gauntlet || {});
