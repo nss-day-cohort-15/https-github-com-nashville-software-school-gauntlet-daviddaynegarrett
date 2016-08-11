@@ -45,6 +45,7 @@ var Gauntlet = (function(gauntlet) {
   gauntlet.Combatants.Player.prototype.setClass = function(SelectedClass) {
 
   // Get a random index from the allowed classes array
+
     if (SelectedClass === 'random'){
       var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
@@ -79,6 +80,7 @@ var Gauntlet = (function(gauntlet) {
     this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
   };
   gauntlet.Combatants.Human.prototype = new gauntlet.Combatants.Player();
+
 
 
   /*
