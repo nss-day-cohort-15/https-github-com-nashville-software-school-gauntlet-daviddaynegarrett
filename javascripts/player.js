@@ -41,7 +41,7 @@ var Gauntlet = (function(gauntlet) {
   gauntlet.Combatants.Player.prototype.attack = function(enemyObj){
     var randomDamage = Math.ceil(Math.random() * this.weapon.damage);
 
-    alert(`${enemyObj.playerName} was attached by ${this.playerName} causing ${randomDamage} damage!`);
+    swal("Boom!", `${enemyObj.playerName} was attacked by ${this.playerName} causing ${randomDamage} damage!`);
 
     enemyObj.health = enemyObj.health - randomDamage;
 
