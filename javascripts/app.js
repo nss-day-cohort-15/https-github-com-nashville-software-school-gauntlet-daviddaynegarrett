@@ -11,7 +11,7 @@ var Gauntlet = (function(gauntlet) {
   orc.setClass(orc);
   orc.setWeapon(orc);
   console.log(orc.toString());
-
+  
   console.log(orc);
 
   //create player
@@ -22,11 +22,11 @@ var Gauntlet = (function(gauntlet) {
     $("#select-name").on('click', () => player.playerName = $('#player-name').val());
 
     // get selected class and add to player
-    $('#class-card').on('click', evt => player.setClass(evt.target.innerHTML));
+    $('#class-card').on('click', evt => player.setClass(evt.target.innerHTML.replace(/\W/g,'')));
 
     //get selected weapon and add to player
     $('#weapon-card').on('click', function(evt){
-       player.setWeapon(evt.target.innerHTML)
+       player.setWeapon(evt.target.innerHTML.replace(/\W/g,''))
        console.log(player);
      });
 
