@@ -32,28 +32,28 @@ gauntlet.GuildHall.Developer = function() {
 gauntlet.GuildHall.Developer.prototype = new gauntlet.GuildHall.PlayerClass();
 
 
-gauntlet.GuildHall.JavaScript = function() {
-  this.name = "JavaScript";
+gauntlet.GuildHall.JavaScriptDeveloper = function() {
+  this.name = "JavaScript Developer";
   this.healthBonus = this.healthBonus + 25;
   this.strengthBonus = this.strengthBonus + 30;
 };
-gauntlet.GuildHall.JavaScript.prototype = new gauntlet.GuildHall.Developer();
+gauntlet.GuildHall.JavaScriptDeveloper.prototype = new gauntlet.GuildHall.Developer();
 
 
-gauntlet.GuildHall.RubyOnRails = function() {
-  this.name = "RubyOnRails";
+gauntlet.GuildHall.RubyOnRailsDeveloper = function() {
+  this.name = "RubyOnRails Developer";
   this.healthBonus = this.healthBonus + 20;
   this.strengthBonus = this.strengthBonus + 10;
 };
-gauntlet.GuildHall.RubyOnRails.prototype = new gauntlet.GuildHall.Developer();
+gauntlet.GuildHall.RubyOnRailsDeveloper.prototype = new gauntlet.GuildHall.Developer();
 
 
-gauntlet.GuildHall.CSharp = function() {
+gauntlet.GuildHall.CSharpDeveloper = function() {
   this.name = "CSharp";
   this.healthBonus = this.healthBonus + 35;
   this.strengthBonus = this.strengthBonus + 20;
 };
-gauntlet.GuildHall.CSharp.prototype = new gauntlet.GuildHall.Developer();
+gauntlet.GuildHall.CSharpDeveloper.prototype = new gauntlet.GuildHall.Developer();
 
 
 
@@ -93,12 +93,12 @@ gauntlet.GuildHall.WordpressDesigner = function() {
 gauntlet.GuildHall.WordpressDesigner.prototype = new gauntlet.GuildHall.Designer();
 
 
-gauntlet.GuildHall.AdobePhotoshop = function() {
+gauntlet.GuildHall.AdobePhotoshopDesigner = function() {
   this.name = "AdobePhotoshop Designer";
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 10;
 };
-gauntlet.GuildHall.AdobePhotoshop.prototype = new gauntlet.GuildHall.Designer();
+gauntlet.GuildHall.AdobePhotoshopDesigner.prototype = new gauntlet.GuildHall.Designer();
 
 
 
@@ -133,7 +133,7 @@ gauntlet.GuildHall.HRRepresentative = function () {
 gauntlet.GuildHall.HRRepresentative.prototype = new gauntlet.GuildHall.DevOps();
 
 gauntlet.GuildHall.CustomerServiceRep = function () {
-  this.name = "Customer Service Representative";
+  this.name = "Customer Service Rep";
   this.healthBonus = this.healthBonus + 10;
   this.intelligenceBonus = this.intelligenceBonus - 10;
   this.strengthBonus = this.strengthBonus + 10;
