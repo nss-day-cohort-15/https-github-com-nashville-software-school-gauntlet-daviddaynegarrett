@@ -123,11 +123,20 @@ body {
 
 .battleGroundTop {
   text-decoration: underline;
+  margin-bottom: 25px;
 }
 .playerName {
   margin-top: 4rem;
 }
 
-.stats {
+.player-stats {
   font-size: 75%;
+}
+
+.player-stats:nth-of-type(n+1){
+  text-align: right;
+}
+
+.player-stats span {
+  font-weight: 900;
 }

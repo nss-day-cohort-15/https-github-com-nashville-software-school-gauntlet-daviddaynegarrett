@@ -10,6 +10,8 @@ var Gauntlet = (function(gauntlet) {
   var badGuy = new gauntlet.Combatants.ImposterSyndrome();
   badGuy.setClass(badGuy);
   badGuy.setWeapon(badGuy);
+  //set badGuy name for testing
+  badGuy.playerName = 'Andrew Chalkley';
   console.log(badGuy.toString());
 
   console.log(badGuy);
@@ -27,7 +29,7 @@ var Gauntlet = (function(gauntlet) {
     //get selected weapon and add to player
     $('#weapon-card').on('click', function(evt){
        player.setWeapon(evt.target.innerHTML.replace(/\W/g,''));
-
+       displayPlayers();
        console.log(player);
      });
 
@@ -35,13 +37,42 @@ var Gauntlet = (function(gauntlet) {
        var timeoutID;
 
        player.attack(badGuy);
+       displayPlayers();
        badGuyAttack();
        clearTimeout(timeoutID);
      });
 
      function badGuyAttack(){
-       timeoutID = window.setTimeout(() => badGuy.attack(player), 2000);
+       timeoutID = window.setTimeout(function(){
+          badGuy.attack(player), 2000;
+          displayPlayers();
+        });
      }
+
+     function displayPlayers(){
+
+       player.image = 'leadOfficeSpace.jpg';
+       badGuy.image = 'boss.jpeg';
+
+       var domStats = ``;
+
+       [player, badGuy].forEach(function(e){
+        domStats += `<div class="col-md-6 player-stats">
+                        <img class="m-x-auto combatPicture" src="img/${e.image}" alt="${e}">
+                        <div>
+                          <div>Name: <span>${e.playerName}</span></div>
+                          <div>Health: <span>${e.health}</span></div>
+                          <div>Class: <span>${e.class.name}</span></div>
+                          <div>Weapon: <span>${e.weapon}</span></div>
+                         </div>
+                      </div>`;
+       });
+
+        $('#all-stats').html(domStats);
+     }
+
+
+
     /*
       Show the initial view that accepts player name
      */
