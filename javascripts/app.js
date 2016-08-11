@@ -35,6 +35,14 @@ var Gauntlet = (function(gauntlet) {
      */
     $("#player-setup").show();
 
+    /*
+      When any button with card__link class is clicked,
+      move on to the next view.
+     */
+    $(".card__link").click(function(e) {
+      var nextCard = $(this).attr("next");
+      var moveAlong = false;
+
         switch (nextCard) {
           case "card--class":
             moveAlong = ($("#player-name").val() !== "");
@@ -53,7 +61,6 @@ var Gauntlet = (function(gauntlet) {
         } else {
           alert('Must make a selection to fight!');
         }
-      });
 
       if (moveAlong) {
         $(".card").hide();
@@ -69,8 +76,8 @@ var Gauntlet = (function(gauntlet) {
       $(".card").hide();
       $("." + previousCard).show();
     });
-
   });
+
   return gauntlet
 
 })(Gauntlet || {});
