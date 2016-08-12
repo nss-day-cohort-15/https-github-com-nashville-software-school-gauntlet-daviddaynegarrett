@@ -47,23 +47,28 @@ var Gauntlet = (function(gauntlet) {
 var jabSoundEffect = document.createElement('audio');
     jabSoundEffect.setAttribute('src', "/sounds/Jab-SoundBible.com-1806727891.mp3")
 
-var MKThemeSoung = document.createElement('audio');
-    MKThemeSoung.setAttribute('src','/sounds/Mortal%20Kombat%20Theme%20Song.mp3')
+var MKThemeSong = document.createElement('audio');
+    MKThemeSong.setAttribute('src','/sounds/Mortal%20Kombat%20Theme%20Song.mp3')
     $(document).ready( function() {
-      MKThemeSoung.play();
+      MKThemeSong.play();
     })
+var victorySong = document.createElement('audio');
+    victorySong.setAttribute('src', '/sounds/Final%20Fantasy%20VII%20-%20Victory%20Fanfare.mp3')
 
      $('.nssMode').on('click', function () {
         player.nssMode(badGuy);
         // displayPlayers();
         nssSoundEffect.play();
-        MKThemeSoung.pause();
-
+        MKThemeSong.pause();
+        victorySong.play();
      });
 
      $('.attack').on('click', function() {
         jabSoundEffect.play();
+        MKThemeSong.volume = 0.3;
+
      })
+
 
 
 
