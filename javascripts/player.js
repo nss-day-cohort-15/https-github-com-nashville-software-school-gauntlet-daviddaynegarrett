@@ -13,9 +13,6 @@ var Gauntlet = (function(gauntlet) {
 
     this.playerName = name;
     this.health = Math.floor(Math.random() * 40 + 50);
-    this.limbs = ["head", "neck", "arm", "leg", "torso"];
-    // this.skinColor = "gray";
-    // this.skinColors = [this.skinColor];
     this.strength = 90;
     this.intelligence = 90;
 

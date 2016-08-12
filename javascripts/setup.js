@@ -1,6 +1,10 @@
 var Gauntlet = (function(gauntlet) {
   //create player
   var player = new gauntlet.Combatants.Human();
+  var name = '';
+  console.log(name)
+
+
 
   //create enemy
   var badGuy = new gauntlet.Combatants.ImposterSyndrome();

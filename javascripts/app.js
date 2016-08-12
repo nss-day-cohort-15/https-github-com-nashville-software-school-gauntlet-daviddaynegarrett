@@ -29,6 +29,8 @@ var Gauntlet = (function(gauntlet) {
        if(badGuy.health >= 0 && player.health >= 0){
          setTimeout(function(){
            badGuy.attack(player);
+            jabSoundEffect.play();
+
           //  displayPlayers();
            $('.attack').prop('disabled', false);
            $('.nssMode').prop('disabled', false);
@@ -37,10 +39,27 @@ var Gauntlet = (function(gauntlet) {
 
      });
 
+     // Sound Effects
+ var nssSoundEffect = document.createElement('audio');
+     nssSoundEffect.setAttribute('src', "/sounds/sfm_mp3_street_fighter_hadouken_sound_effect.mp3");
+
+
+var jabSoundEffect = document.createElement('audio');
+    jabSoundEffect.setAttribute('src', "/sounds/Jab-SoundBible.com-1806727891.mp3")
+
+var MKThemeSoung =
+
      $('.nssMode').on('click', function () {
         player.nssMode(badGuy);
         // displayPlayers();
+        nssSoundEffect.play();
      });
+
+     $('.attack').on('click', function() {
+        jabSoundEffect.play();
+     })
+
+
 
      var randomProperty = function (obj) {
          var keys = Object.keys(obj)
