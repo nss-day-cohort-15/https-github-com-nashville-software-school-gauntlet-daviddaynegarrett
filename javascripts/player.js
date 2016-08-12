@@ -131,22 +131,23 @@ var Gauntlet = (function(gauntlet) {
   gauntlet.Combatants.Player.prototype.setClass = function(SelectedClass) {
 
   // Get a random index from the allowed classes array
-
-    if (SelectedClass === 'random'){
-      var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
-
-      // Get the string at the index
-      var randomClass = this.allowedClasses[random];
-
-      // Composes the corresponding player class into the player object
-      this.class = new gauntlet.GuildHall[randomClass]();
-
-      // Add the health bonus
-      this.health += this.class.healthBonus;
-      return this.class;
-    } else {
-      this.class = new gauntlet.GuildHall[SelectedClass]();
-    }
+  console.log(SelectedClass)
+  this.class = new gauntlet.GuildHall[SelectedClass]();
+    // if (SelectedClass === 'random'){
+    //   var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+    //
+    //   // Get the string at the index
+    //   var randomClass = this.allowedClasses[random];
+    //
+    //   // Composes the corresponding player class into the player object
+    //   this.class = new gauntlet.GuildHall[randomClass]();
+    //
+    //   // Add the health bonus
+    //   this.health += this.class.healthBonus;
+    //   return this.class;
+    // } else {
+    //   this.class = new gauntlet.GuildHall[SelectedClass]();
+    // }
 
   }
   /*
