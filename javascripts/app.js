@@ -34,26 +34,27 @@ var Gauntlet = (function(gauntlet) {
      });
 
      $('.attack').on('click', function(){
-       var timeoutID;
-
+       $(this).prop('disabled', true);
+       $('.nssMode').prop('disabled', true);
        player.attack(badGuy);
        displayPlayers();
-       badGuyAttack();
-       clearTimeout(timeoutID);
+
+       if(badGuy.health >= 0 && player.health >= 0){
+         setTimeout(function(){
+           badGuy.attack(player);
+           displayPlayers();
+           $('.attack').prop('disabled', false);
+           $('.nssMode').prop('disabled', false);
+
+         },3000);
+       }
+
      });
 
      $('.nssMode').on('click', function () {
         player.nssMode(badGuy);
+        displayPlayers();
      });
-
-     var timeoutID;
-
-     function badGuyAttack(){
-       timeoutID = window.setTimeout(function(){
-          badGuy.attack(player), 2000;
-          displayPlayers();
-        });
-     }
 
      function displayPlayers(){
 
@@ -127,6 +128,14 @@ var Gauntlet = (function(gauntlet) {
       $("." + previousCard).show();
     });
   });
+
+  gauntlet.getPlayer = function(){
+    return player;
+  }
+
+  gauntlet.getBadGuy = function(){
+    return badGuy;
+  }
 
   return gauntlet
 
