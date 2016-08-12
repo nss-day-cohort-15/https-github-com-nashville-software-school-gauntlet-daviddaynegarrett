@@ -45,19 +45,19 @@ var Gauntlet = (function(gauntlet) {
 
      // Sound Effects
  var nssSoundEffect = document.createElement('audio');
-     nssSoundEffect.setAttribute('src', "https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/tree/gh-pages/sounds/sfm_mp3_street_fighter_hadouken_sound_effect.mp3");
+     nssSoundEffect.setAttribute('src', "https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/gh-pages/sounds/sfm_mp3_street_fighter_hadouken_sound_effect.mp3");
 
 
 var jabSoundEffect = document.createElement('audio');
-    jabSoundEffect.setAttribute('src', "https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/tree/gh-pages/sounds/Jab-SoundBible.com-1806727891.mp3")
+    jabSoundEffect.setAttribute('src', "https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/gh-pages/sounds/Jab-SoundBible.com-1806727891.mp3")
 
 var MKThemeSong = document.createElement('audio');
-    MKThemeSong.setAttribute('src','https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/tree/gh-pages/sounds/Mortal%20Kombat%20Theme%20Song.mp3')
+    MKThemeSong.setAttribute('src','https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/gh-pages/sounds/Mortal%20Kombat%20Theme%20Song.mp3')
     $(document).ready( function() {
       MKThemeSong.play();
     })
 var victorySong = document.createElement('audio');
-    victorySong.setAttribute('src', 'https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/tree/gh-pages/sounds/Final%20Fantasy%20VII%20-%20Victory%20Fanfare.mp3')
+    victorySong.setAttribute('src', 'https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/gh-pages/sounds/Final%20Fantasy%20VII%20-%20Victory%20Fanfare.mp3')
 
      $('.nssMode').on('click', function () {
         player.nssMode(badGuy);
