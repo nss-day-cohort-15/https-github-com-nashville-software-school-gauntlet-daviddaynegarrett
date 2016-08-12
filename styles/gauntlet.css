@@ -133,10 +133,14 @@ body {
   font-size: 75%;
 }
 
-.player-stats:nth-of-type(n+1){
+.player-stats:nth-of-type(2){
   text-align: right;
 }
 
 .player-stats span {
   font-weight: 900;
+}
+
+.attack-btn {
+  text-align: center;
 }

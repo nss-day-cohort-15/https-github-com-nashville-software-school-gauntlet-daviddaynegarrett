@@ -59,6 +59,7 @@ var Gauntlet = (function(gauntlet) {
         type: "error",
         showCancelButton: false,
         showConfirmButton: false,
+        timer: null
       });
     }
 
@@ -69,6 +70,7 @@ var Gauntlet = (function(gauntlet) {
         type: "success",
         showCancelButton: false,
         showConfirmButton: false,
+        timer: null
       });
     }
   }
@@ -151,11 +153,6 @@ var Gauntlet = (function(gauntlet) {
   gauntlet.Combatants.Monster.prototype.setWeapon = function(obj){
     //generates random allowed weapon for enemy
     generateHelperFunction('allowedWeapons','weapon','Arsenal', obj);
-  }
-
-  gauntlet.Combatants.Monster.prototype.setSpell = function(obj){
-    //generates random allowed spell for enemy
-    generateHelperFunction('allowedSpells','spell','SpellBook', obj);
   }
 
   function generateHelperFunction(array, prop, construct, obj) {

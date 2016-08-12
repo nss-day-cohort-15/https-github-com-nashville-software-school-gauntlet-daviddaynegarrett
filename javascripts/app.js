@@ -1,25 +1,13 @@
-/*
-  Test code to generate a spell
- */
-//var spell = new gauntlet.SpellBook.Sphere();
-//console.log("spell: ", spell.toString());
 
-var Gauntlet = (function(gauntlet) {
-
-  //create enemy (will need to make random)
-  var badGuy = new gauntlet.Combatants.ImposterSyndrome();
-  badGuy.setClass(badGuy);
-  badGuy.setWeapon(badGuy);
-  //set badGuy name for testing
-  badGuy.playerName = 'Andrew Chalkley';
-  console.log(badGuy.toString());
-
-  console.log(badGuy);
-
-  //create player
-  var player = new gauntlet.Combatants.Human();
+(function() {
 
   $(document).ready(function() {
+
+    //local player & badGuy
+    var player = Gauntlet.getPlayer();
+    var badGuy = Gauntlet.getBadGuy();
+
+
     //get selected name and add to player
     $("#select-name").on('click', () => player.playerName = $('#player-name').val());
 
@@ -30,7 +18,6 @@ var Gauntlet = (function(gauntlet) {
     $('#weapon-card').on('click', function(evt){
        player.setWeapon(evt.target.innerHTML.replace(/\W/g,''));
        displayPlayers();
-       console.log(player);
      });
 
      $('.attack').on('click', function(){
@@ -129,14 +116,4 @@ var Gauntlet = (function(gauntlet) {
     });
   });
 
-  gauntlet.getPlayer = function(){
-    return player;
-  }
-
-  gauntlet.getBadGuy = function(){
-    return badGuy;
-  }
-
-  return gauntlet
-
-})(Gauntlet || {});
+})();
