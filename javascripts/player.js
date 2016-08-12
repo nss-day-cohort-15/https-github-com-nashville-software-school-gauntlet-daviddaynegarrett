@@ -50,36 +50,41 @@ var Gauntlet = (function(gauntlet) {
     setTimeout(()=> $enemyId.removeClass('flash'), 2000);
 
     swal({
-            title :`${this.playerName} attacks!`,
-            text :`<span class="bold">${enemyObj.playerName}</span> was attacked <br />by <span class="bold">${this.playerName}</span> with <span class="bold">${this.weapon}</span><br />causing <span class="red bold">${randomDamage} damage</span>!`,
+            title:`${this.playerName} attacks!`,
+            html:`<span class="bold">${enemyObj.playerName}</span> was attacked <br />by <span class="bold">${this.playerName}</span> with <span class="bold">${this.weapon}</span><br />causing <span class="red bold">${randomDamage} damage</span>!`,
             type: "warning",
             showCancelButton: false,
             showConfirmButton: false,
-            timer: 2000,
-            html: true
+            timer: 2000
         });
 
-    if(gauntlet.getPlayer().health <= 0){
-      swal({
-        title: "You lose!",
-        text: "Maybe this isn't for you after all",
-        type: "error",
-        showCancelButton: false,
-        showConfirmButton: false,
-        html: true
-      });
-    }
+    if(gauntlet.getPlayer().health <= 0){youLose();}
 
-    if (gauntlet.getBadGuy().health <= 0){
-      swal({
-        title: "You Win!",
-        text: "You might actually make a career out of this!",
-        type: "success",
-        showCancelButton: false,
-        showConfirmButton: false,
-        html: true
-      });
-    }
+    if (gauntlet.getBadGuy().health <= 0){youWin();}
+  }
+
+  function youWin(){
+    swal({
+      title: "You Win!",
+      text: "You might actually make a career out of this!",
+      type: "success",
+      showCancelButton: false,
+      showConfirmButton: false,
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
+  }
+
+  function youLose(){
+    swal({
+      title: "You lose!",
+      text: "Maybe this isn't for you after all",
+      type: "error",
+      showCancelButton: false,
+      showConfirmButton: false,
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
   }
 
     gauntlet.Combatants.Player.prototype.nssMode = function(enemyObj){
@@ -93,7 +98,8 @@ var Gauntlet = (function(gauntlet) {
         type: "success",
         showCancelButton: false,
         showConfirmButton: false,
-        html: true
+        allowEscapeKey: false,
+        allowOutsideClick: false
       });
     }
 
