@@ -11,7 +11,7 @@ var Gauntlet = (function(gauntlet) {
     this.class = null;
     this.weapon = null;
 
-    this.playerName = name;
+    this.playerName = name || 'Player 1';
     this.health = Math.floor(Math.random() * 40 + 50);
     this.limbs = ["head", "neck", "arm", "leg", "torso"];
     // this.skinColor = "gray";
@@ -45,9 +45,19 @@ var Gauntlet = (function(gauntlet) {
 
     gauntlet.displayPlayers();
 
-    var $enemyId = $(`#health${this === gauntlet.getPlayer()? 1 : 0}`);
-    $enemyId.addClass('flash');
-    setTimeout(()=> $enemyId.removeClass('flash'), 2000);
+    var enemyId = (this === gauntlet.getPlayer()) ? 1 : 0;
+
+    var $health = $(`#health${enemyId}`);
+    var $image = $(`#img${enemyId}`);
+
+    $health.addClass('flash');
+    $image.addClass('shake');
+    setTimeout(()=> removeClasses, 2000);
+
+    function removeClasses(){
+      $enemyId.removeClass('flash');
+      $image.removeClass('shake');
+    }
 
     swal({
             title:`${this.playerName} attacks!`,
