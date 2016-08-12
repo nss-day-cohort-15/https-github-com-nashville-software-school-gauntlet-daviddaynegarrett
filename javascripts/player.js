@@ -61,6 +61,7 @@ var Gauntlet = (function(gauntlet) {
   }
 
   function youWin(){
+
     swal({
       title: "You Win!",
       text: "You might actually make a career out of this!",
@@ -70,6 +71,7 @@ var Gauntlet = (function(gauntlet) {
       allowEscapeKey: false,
       allowOutsideClick: false
     });
+
   }
 
   function youLose(){
@@ -88,6 +90,7 @@ var Gauntlet = (function(gauntlet) {
       enemyObj.health = 0;
 
       gauntlet.displayPlayers();
+
 
       swal({
         title: "You Win!",

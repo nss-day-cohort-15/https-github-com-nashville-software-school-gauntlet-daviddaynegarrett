@@ -66,6 +66,10 @@ var victorySong = document.createElement('audio');
      $('.attack').on('click', function() {
         jabSoundEffect.play();
         MKThemeSong.volume = 0.3;
+        if (gauntlet.getBadGuy().health <= 0) {
+          MKThemeSong.pause();
+          victorySong.play();
+        }
 
      })
 
