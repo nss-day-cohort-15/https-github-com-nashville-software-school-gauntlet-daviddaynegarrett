@@ -43,17 +43,29 @@
         displayPlayers();
      });
 
-     function displayPlayers(){
+     var randomProperty = function (obj) {
+         var keys = Object.keys(obj)
+         var num = keys.length * Math.random() << 0;
+         badGuy.playerName = keys[num];
+         return obj[keys[num]];
+     };
 
-       player.image = 'leadOfficeSpace.jpg';
-       badGuy.image = 'boss.jpeg';
+      player.image = 'leadOfficeSpace.jpg';
+      badGuy.image = randomProperty(badGuy.nameImgObj);
+
+
+      var startingHealth = [player.health, badGuy.health];
+
+
+     function displayPlayers(){
 
        var domStats = ``;
 
-       [player, badGuy].forEach(function(e){
+       [player, badGuy].forEach(function(e,i){
         domStats += `<div class="col-md-6 player-stats">
                         <img class="m-x-auto combatPicture" src="img/${e.image}" alt="${e}">
                         <div>
+                        <progress id="health${i}" value="${e.health}" max="${startingHealth[i]}"></progress>
                           <div>Name: <span>${e.playerName}</span></div>
                           <div>Health: <span>${e.health}</span></div>
                           <div>Class: <span>${e.class.name}</span></div>

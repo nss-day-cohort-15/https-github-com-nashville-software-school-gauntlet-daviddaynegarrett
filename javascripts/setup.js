@@ -7,7 +7,13 @@ var Gauntlet = (function(gauntlet) {
   badGuy.setClass(badGuy);
   badGuy.setWeapon(badGuy);
   //set badGuy name for testing
-  badGuy.playerName = 'Andrew Chalkley';
+
+  badGuy.nameImgObj = {
+      'Bill Lumbergh': 'boss.jpeg',
+      'Nick Petty': 'nick.png',
+      'Guil Hernandez': 'guil.png',
+      'Andrew Chalkley': 'andrew.png'
+  }
 
   //get player
   gauntlet.getPlayer = function(){
