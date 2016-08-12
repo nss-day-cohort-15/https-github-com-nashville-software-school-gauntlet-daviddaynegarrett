@@ -39,6 +39,7 @@ var Gauntlet = (function(gauntlet) {
        player.attack(badGuy);
        displayPlayers();
 
+       if(badGuy.health >= 0 && player.health >= 0){
          setTimeout(function(){
            badGuy.attack(player);
            displayPlayers();
@@ -46,6 +47,7 @@ var Gauntlet = (function(gauntlet) {
            $('.nssMode').prop('disabled', false);
 
          },3000);
+       }
 
      });
 

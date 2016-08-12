@@ -60,7 +60,9 @@ var Gauntlet = (function(gauntlet) {
         showCancelButton: false,
         showConfirmButton: false,
       });
-    } else if (gauntlet.getBadGuy().health <= 0){
+    }
+
+    if (gauntlet.getBadGuy().health <= 0){
       swal({
         title: "You Win!",
         text: "You might actually make a career out of this!",
