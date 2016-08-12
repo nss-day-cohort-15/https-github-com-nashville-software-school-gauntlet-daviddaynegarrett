@@ -49,14 +49,21 @@ var Gauntlet = (function(gauntlet) {
 
     var $health = $(`#health${enemyId}`);
     var $image = $(`#img${enemyId}`);
+    var enemyName = (enemyId === 1) ? enemyObj.playerName.substr(0,enemyObj.playerName.indexOf(' ')).toLowerCase() : 'player';
 
+    $image.attr('src', `img/${enemyName}1.png`);
     $health.addClass('flash');
     $image.addClass('shake');
-    setTimeout(()=> removeClasses, 2000);
+
+
+
+    //remove classes after attack
+    setTimeout(removeClasses, 2000);
 
     function removeClasses(){
-      $enemyId.removeClass('flash');
+      $health.removeClass('flash');
       $image.removeClass('shake');
+      $image.attr('src', `img/${enemyName}.png`);
     }
 
     swal({

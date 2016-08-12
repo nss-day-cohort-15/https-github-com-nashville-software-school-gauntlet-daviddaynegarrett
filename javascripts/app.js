@@ -53,7 +53,7 @@ var Gauntlet = (function(gauntlet) {
          return obj[keys[num]];
      };
 
-      player.image = 'leadOfficeSpace.jpg';
+      player.image = 'player.png';
       badGuy.image = randomProperty(badGuy.nameImgObj);
 
 
