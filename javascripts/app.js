@@ -47,12 +47,18 @@ var Gauntlet = (function(gauntlet) {
 var jabSoundEffect = document.createElement('audio');
     jabSoundEffect.setAttribute('src', "/sounds/Jab-SoundBible.com-1806727891.mp3")
 
-var MKThemeSoung =
+var MKThemeSoung = document.createElement('audio');
+    MKThemeSoung.setAttribute('src','/sounds/Mortal%20Kombat%20Theme%20Song.mp3')
+    $(document).ready( function() {
+      MKThemeSoung.play();
+    })
 
      $('.nssMode').on('click', function () {
         player.nssMode(badGuy);
         // displayPlayers();
         nssSoundEffect.play();
+        MKThemeSoung.pause();
+
      });
 
      $('.attack').on('click', function() {
