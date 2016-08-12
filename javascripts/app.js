@@ -60,7 +60,7 @@ var Gauntlet = (function(gauntlet) {
          victorySong.setAttribute('src', 'https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/gh-pages/sounds/Final%20Fantasy%20VII%20-%20Victory%20Fanfare.mp3');
 
      var lostSong = document.createElement('audio');
-         lostSong.setAttribute('src', '../sounds/lose.mp3');
+         lostSong.setAttribute('src', 'https://raw.githubusercontent.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/gh-pages/sounds/lose.mp3');
 
     gauntlet.lost = function(){
         MKThemeSong.pause();
