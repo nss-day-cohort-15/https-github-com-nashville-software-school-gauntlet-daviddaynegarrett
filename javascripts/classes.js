@@ -48,12 +48,12 @@ gauntlet.GuildHall.RubyOnRailsDeveloper = function() {
 gauntlet.GuildHall.RubyOnRailsDeveloper.prototype = new gauntlet.GuildHall.Developer();
 
 
-gauntlet.GuildHall.CSharpDeveloper = function() {
-  this.name = "CSharp";
+gauntlet.GuildHall.PythonDeveloper = function() {
+  this.name = "Python Developer";
   this.healthBonus = this.healthBonus + 35;
   this.strengthBonus = this.strengthBonus + 20;
 };
-gauntlet.GuildHall.CSharpDeveloper.prototype = new gauntlet.GuildHall.Developer();
+gauntlet.GuildHall.PythonDeveloper.prototype = new gauntlet.GuildHall.Developer();
 
 
 /*
@@ -140,4 +140,3 @@ gauntlet.GuildHall.CustomerServiceRep.prototype = new gauntlet.GuildHall.DevOps(
 
  return gauntlet
 })(Gauntlet || {});
-

@@ -109,8 +109,10 @@ body {
 }
 
 .combatPicture {
-  height: 50%;
-  width:40%;
+  border-radius: 15px;
+  border: 3px solid grey;
+  width: 325px;
+  height: 325px;
 }
 
 .placeForPlayer .combatPicture {
@@ -133,10 +135,48 @@ body {
   font-size: 75%;
 }
 
-.player-stats:nth-of-type(n+1){
+.player-stats:nth-of-type(2){
   text-align: right;
 }
 
 .player-stats span {
   font-weight: 900;
+}
+
+.attack-btn {
+  text-align: center;
+}
+
+img {
+  object-fit: cover;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.red {
+  color: tomato;
+}
+
+
+/*flash the health when it changes */
+@keyframes health-fade {
+    0% {
+        background-color: transparent;
+        opacity:1;
+    }
+    25% {
+        background-color: red;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.flash{
+  animation-name: health-fade;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
 }

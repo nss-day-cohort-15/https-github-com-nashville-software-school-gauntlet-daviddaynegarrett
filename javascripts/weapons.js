@@ -21,7 +21,7 @@ gauntlet.Arsenal.Weapon = function() {
 
 gauntlet.Arsenal.Vim = function() {
   this.name = "Vim";
-  this.damage = 150;
+  this.damage = 15;
   this.hands = 1;
 };
 gauntlet.Arsenal.Vim.prototype = new gauntlet.Arsenal.Weapon();

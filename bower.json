@@ -18,6 +18,8 @@
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.0",
     "lato-webfont": "^1.1.2",
-    "sweetalert": "^1.1.3"
+    "devicons": "^1.8.0",
+    "font-awesome": "^4.6.3",
+    "sweetalert2": "^4.1.5"
   }
 }

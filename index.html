@@ -5,7 +5,9 @@
   <meta charset="utf-8">
   <title>Gauntlet</title>
   <link href='/bower_components/lato-webfont/css/lato-webfont.min.css' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
+  <link href='/bower_components/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  <link href='/bower_components/devicons/css/devicons.min.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/gauntlet.css">
 </head>
@@ -51,7 +53,7 @@
           <div class="col-sm-6">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                <span class="devicons devicons-javascript"></span>
                 <span class="btn__text">Java Script Developer</span>
               </a>
             </div>
@@ -59,15 +61,15 @@
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                <span class="devicons devicons-ruby_on_rails"></span>
                 <span class="btn__text">RubyOnRails Developer</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
-                <span class="btn__text">CSharp Developer</span>
+                <span class="devicons devicons-python"></span>
+                <span class="btn__text">Python Developer</span>
               </a>
             </div>
 
@@ -75,7 +77,7 @@
           <div class="col-sm-6">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                <span class="devicons devicons-sass"></span>
                 <span class="btn__text">SASS Designer</span>
               </a>
             </div>
@@ -83,14 +85,14 @@
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                <span class="devicons devicons-wordpress"></span>
                 <span class="btn__text">Wordpress Designer</span>
               </a>
             </div>
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                <span class="devicons devicons-photoshop"></span>
                 <span class="btn__text">Adobe Photoshop Designer</span>
               </a>
             </div>
@@ -99,7 +101,7 @@
           <div class="col-sm-6">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                <span class="devicons devicons-responsive"></span>
                 <span class="btn__text">Startup Ceo</span>
               </a>
             </div>
@@ -120,7 +122,7 @@
             </div>
        </div>
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-sm-6">
             <div class="card__button">
               <a class="class__link btn btn--big btn--yellow" href="#">
@@ -128,7 +130,7 @@
                 <span class="btn__text">Surprise Me</span>
               </a>
             </div>
-            </div>
+            </div> -->
 
             <div class="col-sm-6">
       <div class="card__button">
@@ -163,19 +165,19 @@
           <div class="col-sm-6">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                <span class="devicons devicons-git"></span>
                 <span class="btn__text">Vim</span>
               </a>
             </div>
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
-                <span class="btn__prompt">></span>
+                <span class="devicons devicons-atom"></span>
                 <span class="btn__text">Atom</span>
               </a>
             </div>
           <div class="card__button">
             <a class="class__link btn btn--big btn--blue" href="#">
-              <span class="btn__prompt">></span>
+              <span class="devicons devicons-sublime"></span>
               <span class="btn__text">Sublime</span>
             </a>
           </div>
@@ -233,8 +235,10 @@
       <div class="container">
         <div id="all-stats" class="row">
         </div>
-        <button class="attack btn btn-danger">ATTACK!</button>
-        <button class="nssMode btn btn-primary">NSS Mode</button>
+        <div class="attack-btn">
+          <button class="attack btn btn-danger">ATTACK!</button>
+          <button class="nssMode btn btn-primary">NSS Mode</button>
+        </div>
       </div>
 
     </section>
@@ -242,12 +246,12 @@
   </article>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
   <script src="javascripts/weapons.js"></script>
   <script src="javascripts/classes.js"></script>
-  <script src="javascripts/spells.js"></script>
   <script src="javascripts/player.js"></script>
   <script src="javascripts/enemies.js"></script>
+  <script src="javascripts/setup.js"></script>
   <script src="javascripts/app.js"></script>
 
 </body>

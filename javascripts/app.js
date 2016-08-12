@@ -1,25 +1,13 @@
-/*
-  Test code to generate a spell
- */
-//var spell = new gauntlet.SpellBook.Sphere();
-//console.log("spell: ", spell.toString());
 
 var Gauntlet = (function(gauntlet) {
 
-  //create enemy (will need to make random)
-  var badGuy = new gauntlet.Combatants.ImposterSyndrome();
-  badGuy.setClass(badGuy);
-  badGuy.setWeapon(badGuy);
-  //set badGuy name for testing
-  badGuy.playerName = 'Andrew Chalkley';
-  console.log(badGuy.toString());
-
-  console.log(badGuy);
-
-  //create player
-  var player = new gauntlet.Combatants.Human();
-
   $(document).ready(function() {
+
+    //local player & badGuy
+    var player = Gauntlet.getPlayer();
+    var badGuy = Gauntlet.getBadGuy();
+
+
     //get selected name and add to player
     $("#select-name").on('click', () => player.playerName = $('#player-name').val());
 
@@ -29,46 +17,90 @@ var Gauntlet = (function(gauntlet) {
     //get selected weapon and add to player
     $('#weapon-card').on('click', function(evt){
        player.setWeapon(evt.target.innerHTML.replace(/\W/g,''));
-       displayPlayers();
-       console.log(player);
+       gauntlet.displayPlayers();
      });
 
      $('.attack').on('click', function(){
        $(this).prop('disabled', true);
        $('.nssMode').prop('disabled', true);
        player.attack(badGuy);
-       displayPlayers();
+      //  displayPlayers();
 
        if(badGuy.health >= 0 && player.health >= 0){
          setTimeout(function(){
            badGuy.attack(player);
-           displayPlayers();
+            jabSoundEffect.play();
+
+          //  displayPlayers();
            $('.attack').prop('disabled', false);
            $('.nssMode').prop('disabled', false);
-
          },3000);
        }
 
      });
 
+     // Sound Effects
+ var nssSoundEffect = document.createElement('audio');
+     nssSoundEffect.setAttribute('src', "/sounds/sfm_mp3_street_fighter_hadouken_sound_effect.mp3");
+
+
+var jabSoundEffect = document.createElement('audio');
+    jabSoundEffect.setAttribute('src', "/sounds/Jab-SoundBible.com-1806727891.mp3")
+
+var MKThemeSong = document.createElement('audio');
+    MKThemeSong.setAttribute('src','/sounds/Mortal%20Kombat%20Theme%20Song.mp3')
+    $(document).ready( function() {
+      MKThemeSong.play();
+    })
+var victorySong = document.createElement('audio');
+    victorySong.setAttribute('src', '/sounds/Final%20Fantasy%20VII%20-%20Victory%20Fanfare.mp3')
+
      $('.nssMode').on('click', function () {
         player.nssMode(badGuy);
-        displayPlayers();
+        // displayPlayers();
+        nssSoundEffect.play();
+        MKThemeSong.pause();
+        victorySong.play();
      });
 
-     function displayPlayers(){
+     $('.attack').on('click', function() {
+        jabSoundEffect.play();
+        MKThemeSong.volume = 0.3;
+        if (gauntlet.getBadGuy().health <= 0) {
+          MKThemeSong.pause();
+          victorySong.play();
+        }
 
-       player.image = 'leadOfficeSpace.jpg';
-       badGuy.image = 'boss.jpeg';
+     })
+
+
+
+
+     var randomProperty = function (obj) {
+         var keys = Object.keys(obj)
+         var num = keys.length * Math.random() << 0;
+         badGuy.playerName = keys[num];
+         return obj[keys[num]];
+     };
+
+      player.image = 'leadOfficeSpace.jpg';
+      badGuy.image = randomProperty(badGuy.nameImgObj);
+
+
+      var startingHealth = [player.health, badGuy.health];
+
+
+     gauntlet.displayPlayers = function(){
 
        var domStats = ``;
 
-       [player, badGuy].forEach(function(e){
+       [player, badGuy].forEach(function(e,i){
         domStats += `<div class="col-md-6 player-stats">
                         <img class="m-x-auto combatPicture" src="img/${e.image}" alt="${e}">
                         <div>
+                        <progress value="${e.health}" max="${startingHealth[i]}"></progress>
                           <div>Name: <span>${e.playerName}</span></div>
-                          <div>Health: <span>${e.health}</span></div>
+                          <div>Health: <span id="health${i}"">${e.health}</span></div>
                           <div>Class: <span>${e.class.name}</span></div>
                           <div>Weapon: <span>${e.weapon}</span></div>
                          </div>
@@ -129,14 +161,6 @@ var Gauntlet = (function(gauntlet) {
     });
   });
 
-  gauntlet.getPlayer = function(){
-    return player;
-  }
-
-  gauntlet.getBadGuy = function(){
-    return badGuy;
-  }
-
-  return gauntlet
+  return gauntlet;
 
 })(Gauntlet || {});

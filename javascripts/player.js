@@ -11,11 +11,8 @@ var Gauntlet = (function(gauntlet) {
     this.class = null;
     this.weapon = null;
 
-    this.playerName = name || "unknown adventurer";
+    this.playerName = name;
     this.health = Math.floor(Math.random() * 40 + 50);
-    this.limbs = ["head", "neck", "arm", "leg", "torso"];
-    // this.skinColor = "gray";
-    // this.skinColors = [this.skinColor];
     this.strength = 90;
     this.intelligence = 90;
 
@@ -43,38 +40,57 @@ var Gauntlet = (function(gauntlet) {
     var randomDamage = Math.ceil(Math.random() * this.weapon.damage);
     enemyObj.health = enemyObj.health - randomDamage;
 
+    gauntlet.displayPlayers();
+
+    var $enemyId = $(`#health${this === gauntlet.getPlayer()? 1 : 0}`);
+    $enemyId.addClass('flash');
+    setTimeout(()=> $enemyId.removeClass('flash'), 2000);
+
     swal({
-            title :"Boom!",
-            text :`${enemyObj.playerName} was attacked by ${this.playerName} causing ${randomDamage} damage!`,
+            title:`${this.playerName} attacks!`,
+            html:`<span class="bold">${enemyObj.playerName}</span> was attacked <br />by <span class="bold">${this.playerName}</span> with <span class="bold">${this.weapon}</span><br />causing <span class="red bold">${randomDamage} damage</span>!`,
             type: "warning",
             showCancelButton: false,
             showConfirmButton: false,
             timer: 2000
         });
 
-    if(gauntlet.getPlayer().health <= 0){
-      swal({
-        title: "You lose!",
-        text: "Maybe this isn't for you after all",
-        type: "error",
-        showCancelButton: false,
-        showConfirmButton: false,
-      });
-    }
+    if(gauntlet.getPlayer().health <= 0){youLose();}
 
-    if (gauntlet.getBadGuy().health <= 0){
-      swal({
-        title: "You Win!",
-        text: "You might actually make a career out of this!",
-        type: "success",
-        showCancelButton: false,
-        showConfirmButton: false,
-      });
-    }
+    if (gauntlet.getBadGuy().health <= 0){youWin();}
+  }
+
+  function youWin(){
+
+    swal({
+      title: "You Win!",
+      text: "You might actually make a career out of this!",
+      type: "success",
+      showCancelButton: false,
+      showConfirmButton: false,
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
+
+  }
+
+  function youLose(){
+    swal({
+      title: "You lose!",
+      text: "Maybe this isn't for you after all",
+      type: "error",
+      showCancelButton: false,
+      showConfirmButton: false,
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    });
   }
 
     gauntlet.Combatants.Player.prototype.nssMode = function(enemyObj){
       enemyObj.health = 0;
+
+      gauntlet.displayPlayers();
+
 
       swal({
         title: "You Win!",
@@ -82,6 +98,8 @@ var Gauntlet = (function(gauntlet) {
         type: "success",
         showCancelButton: false,
         showConfirmButton: false,
+        allowEscapeKey: false,
+        allowOutsideClick: false
       });
     }
 
@@ -151,11 +169,6 @@ var Gauntlet = (function(gauntlet) {
   gauntlet.Combatants.Monster.prototype.setWeapon = function(obj){
     //generates random allowed weapon for enemy
     generateHelperFunction('allowedWeapons','weapon','Arsenal', obj);
-  }
-
-  gauntlet.Combatants.Monster.prototype.setSpell = function(obj){
-    //generates random allowed spell for enemy
-    generateHelperFunction('allowedSpells','spell','SpellBook', obj);
   }
 
   function generateHelperFunction(array, prop, construct, obj) {
