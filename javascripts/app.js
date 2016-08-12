@@ -6,10 +6,14 @@ var Gauntlet = (function(gauntlet) {
     //local player & badGuy
     var player = Gauntlet.getPlayer();
     var badGuy = Gauntlet.getBadGuy();
+    var playerName2 = '';
 
 
     //get selected name and add to player
-    $("#select-name").on('click', () => player.playerName = $('#player-name').val());
+    $("#select-name").on('click', function(){
+        playerName2 = $('#player-name').val();
+        player.playerName = playerName2;
+      });
 
     // get selected class and add to player
     $('#class-card').on('click', evt => player.setClass(evt.target.innerHTML.replace(/\W/g,'')));
@@ -65,7 +69,7 @@ var Gauntlet = (function(gauntlet) {
                         <img class="m-x-auto combatPicture" src="img/${e.image}" alt="${e}">
                         <div>
                         <progress value="${e.health}" max="${startingHealth[i]}"></progress>
-                          <div>Name: <span>${e.playerName}</span></div>
+                          <div>Name: <span>${e.playerName || playerName2}</span></div>
                           <div>Health: <span id="health${i}"">${e.health}</span></div>
                           <div>Class: <span>${e.class.name}</span></div>
                           <div>Weapon: <span>${e.weapon}</span></div>
