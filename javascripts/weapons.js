@@ -19,12 +19,12 @@ gauntlet.Arsenal.Weapon = function() {
   }
 };
 
-gauntlet.Arsenal.Vim = function() {
-  this.name = "Vim";
+gauntlet.Arsenal.Git = function() {
+  this.name = "Git";
   this.damage = 15;
   this.hands = 1;
 };
-gauntlet.Arsenal.Vim.prototype = new gauntlet.Arsenal.Weapon();
+gauntlet.Arsenal.Git.prototype = new gauntlet.Arsenal.Weapon();
 
 gauntlet.Arsenal.Atom = function() {
   this.name = "Atom";

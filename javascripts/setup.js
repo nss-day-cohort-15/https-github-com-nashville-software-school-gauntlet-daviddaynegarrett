@@ -13,10 +13,11 @@ var Gauntlet = (function(gauntlet) {
   //set badGuy name for testing
 
   badGuy.nameImgObj = {
-      'Bill Lumbergh': 'boss.jpeg',
+      'Bill Lumbergh': 'bill.png',
       'Nick Petty': 'nick.png',
       'Guil Hernandez': 'guil.png',
-      'Andrew Chalkley': 'andrew.png'
+      'Andrew Chalkley': 'andrew.png',
+      'Hans Gruber': 'hans.png'
   }
 
   //get player

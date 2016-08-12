@@ -6,19 +6,23 @@ var Gauntlet = (function(gauntlet) {
     //local player & badGuy
     var player = Gauntlet.getPlayer();
     var badGuy = Gauntlet.getBadGuy();
+    var playerName2 = '';
 
 
     //get selected name and add to player
-    $("#select-name").on('click', () => player.playerName = $('#player-name').val());
+    $("#select-name").on('click', function(){
+        playerName2 = $('#player-name').val();
+        player.playerName = playerName2;
+      });
 
     // get selected class and add to player
     $('#class-card').on('click', evt => player.setClass(evt.target.innerHTML.replace(/\W/g,'')));
 
     //get selected weapon and add to player
-    $('#weapon-card').on('click', function(evt){
-       player.setWeapon(evt.target.innerHTML.replace(/\W/g,''));
-       gauntlet.displayPlayers();
-     });
+    $('#weapon-card').on('click', (evt) => player.setWeapon(evt.target.innerHTML.replace(/\W/g,'')));
+
+    //on click to battleground display player stats
+    $('.battle').on('click', () => gauntlet.displayPlayers());
 
      $('.attack').on('click', function(){
        $(this).prop('disabled', true);
@@ -83,7 +87,7 @@ var victorySong = document.createElement('audio');
          return obj[keys[num]];
      };
 
-      player.image = 'leadOfficeSpace.jpg';
+      player.image = 'player.png';
       badGuy.image = randomProperty(badGuy.nameImgObj);
 
 
@@ -96,10 +100,10 @@ var victorySong = document.createElement('audio');
 
        [player, badGuy].forEach(function(e,i){
         domStats += `<div class="col-md-6 player-stats">
-                        <img class="m-x-auto combatPicture" src="img/${e.image}" alt="${e}">
+                        <img id="img${i}" class="m-x-auto combatPicture" src="img/${e.image}" alt="${e}">
                         <div>
                         <progress value="${e.health}" max="${startingHealth[i]}"></progress>
-                          <div>Name: <span>${e.playerName}</span></div>
+                          <div>Name: <span>${e.playerName || "Player 1"}</span></div>
                           <div>Health: <span id="health${i}"">${e.health}</span></div>
                           <div>Class: <span>${e.class.name}</span></div>
                           <div>Weapon: <span>${e.weapon}</span></div>
@@ -108,9 +112,8 @@ var victorySong = document.createElement('audio');
        });
 
         $('#all-stats').html(domStats);
+
      }
-
-
 
     /*
       Show the initial view that accepts player name
