@@ -3,6 +3,8 @@ var Gauntlet = (function(gauntlet) {
 
   $(document).ready(function() {
 
+    console.log('Run Gauntlet.changeHealth(value) to set your health to any value you pass in.');
+
     //local player & badGuy
     var player = Gauntlet.getPlayer();
     var badGuy = Gauntlet.getBadGuy();

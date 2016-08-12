@@ -182,8 +182,8 @@ var Gauntlet = (function(gauntlet) {
   }
 
   //function to change human health
-  gauntlet.changeHealth = function(){
-    gauntlet.getPlayer().health = 1;
+  gauntlet.changeHealth = function(updateHealth){
+    gauntlet.getPlayer().health = updateHealth;
   }
 
   return gauntlet
