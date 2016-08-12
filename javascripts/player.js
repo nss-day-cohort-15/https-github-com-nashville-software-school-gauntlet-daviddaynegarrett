@@ -94,6 +94,9 @@ var Gauntlet = (function(gauntlet) {
   }
 
   function youLose(){
+
+    gauntlet.lost();
+
     swal({
       title: "You lose!",
       text: "Maybe this isn't for you after all",
@@ -133,22 +136,6 @@ var Gauntlet = (function(gauntlet) {
   // Get a random index from the allowed classes array
   console.log(SelectedClass)
   this.class = new gauntlet.GuildHall[SelectedClass]();
-    // if (SelectedClass === 'random'){
-    //   var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
-    //
-    //   // Get the string at the index
-    //   var randomClass = this.allowedClasses[random];
-    //
-    //   // Composes the corresponding player class into the player object
-    //   this.class = new gauntlet.GuildHall[randomClass]();
-    //
-    //   // Add the health bonus
-    //   this.health += this.class.healthBonus;
-    //   return this.class;
-    // } else {
-    //   this.class = new gauntlet.GuildHall[SelectedClass]();
-    // }
-
   }
   /*
     Define the base properties for a human in a
@@ -159,10 +146,6 @@ var Gauntlet = (function(gauntlet) {
 
     this.species = "Human";
     this.intelligence = this.intelligence + 20;
-
-    //this.skinColors.push("brown", "red", "white", "disease");
-    //randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
-    //this.skinColor = this.skinColors[randomSkin];
 
     this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
   };
@@ -196,6 +179,11 @@ var Gauntlet = (function(gauntlet) {
       var randomItem = obj[array][random];
       obj[prop] = new gauntlet[construct][randomItem]();
       return obj[prop];
+  }
+
+  //function to change human health
+  gauntlet.changeHealth = function(){
+    gauntlet.getPlayer().health = 1;
   }
 
   return gauntlet
