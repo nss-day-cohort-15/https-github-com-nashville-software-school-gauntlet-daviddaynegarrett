@@ -3,9 +3,25 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.8) 50%,rgba(255,255,255,0.8) 100%), url('/img/sanfran.jpeg');
+  background-size: cover;
+
 }
 
-.field {
+
+/*.backgroundImage:after {
+  background-image: url("/img/sanfran.jpeg");
+  background-size:cover;
+  opacity: 0.5;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+*/.field {
   margin: 20px 0 0 0;
 }
 

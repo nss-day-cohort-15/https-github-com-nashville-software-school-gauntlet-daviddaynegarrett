@@ -13,6 +13,8 @@ var Gauntlet = (function(gauntlet) {
 
     this.playerName = name || 'Player 1';
     this.health = Math.floor(Math.random() * 40 + 50);
+
+    // this.health = 1
     this.strength = 90;
     this.intelligence = 90;
 
