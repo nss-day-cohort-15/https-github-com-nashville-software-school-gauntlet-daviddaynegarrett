@@ -43,13 +43,20 @@ var Gauntlet = (function(gauntlet) {
     var randomDamage = Math.ceil(Math.random() * this.weapon.damage);
     enemyObj.health = enemyObj.health - randomDamage;
 
+    gauntlet.displayPlayers();
+
+    var $enemyId = $(`#health${this === gauntlet.getPlayer()? 1 : 0}`);
+    $enemyId.addClass('flash');
+    setTimeout(()=> $enemyId.removeClass('flash'), 2000);
+
     swal({
-            title :"Boom!",
-            text :`${enemyObj.playerName} was attacked by ${this.playerName} causing ${randomDamage} damage!`,
+            title :`${this.playerName} attacks!`,
+            text :`<span class="bold">${enemyObj.playerName}</span> was attacked <br />by <span class="bold">${this.playerName}</span> with <span class="bold">${this.weapon}</span><br />causing <span class="red bold">${randomDamage} damage</span>!`,
             type: "warning",
             showCancelButton: false,
             showConfirmButton: false,
-            timer: 2000
+            timer: 2000,
+            html: true
         });
 
     if(gauntlet.getPlayer().health <= 0){
@@ -59,7 +66,7 @@ var Gauntlet = (function(gauntlet) {
         type: "error",
         showCancelButton: false,
         showConfirmButton: false,
-        timer: null
+        html: true
       });
     }
 
@@ -70,7 +77,7 @@ var Gauntlet = (function(gauntlet) {
         type: "success",
         showCancelButton: false,
         showConfirmButton: false,
-        timer: null
+        html: true
       });
     }
   }
@@ -78,12 +85,15 @@ var Gauntlet = (function(gauntlet) {
     gauntlet.Combatants.Player.prototype.nssMode = function(enemyObj){
       enemyObj.health = 0;
 
+      gauntlet.displayPlayers();
+
       swal({
         title: "You Win!",
         text: "NSS is a great shortcut! Strong choice!",
         type: "success",
         showCancelButton: false,
         showConfirmButton: false,
+        html: true
       });
     }
 

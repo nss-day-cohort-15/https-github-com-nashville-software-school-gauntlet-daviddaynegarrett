@@ -150,3 +150,33 @@ body {
 img {
   object-fit: cover;
 }
+
+.bold {
+  font-weight: 900;
+}
+
+.red {
+  color: tomato;
+}
+
+
+/*flash the health when it changes */
+@keyframes health-fade {
+    0% {
+        background-color: transparent;
+        opacity:1;
+    }
+    25% {
+        background-color: red;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.flash{
+  animation-name: health-fade;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}

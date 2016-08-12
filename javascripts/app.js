@@ -1,5 +1,5 @@
 
-(function() {
+var Gauntlet = (function(gauntlet) {
 
   $(document).ready(function() {
 
@@ -17,22 +17,21 @@
     //get selected weapon and add to player
     $('#weapon-card').on('click', function(evt){
        player.setWeapon(evt.target.innerHTML.replace(/\W/g,''));
-       displayPlayers();
+       gauntlet.displayPlayers();
      });
 
      $('.attack').on('click', function(){
        $(this).prop('disabled', true);
        $('.nssMode').prop('disabled', true);
        player.attack(badGuy);
-       displayPlayers();
+      //  displayPlayers();
 
        if(badGuy.health >= 0 && player.health >= 0){
          setTimeout(function(){
            badGuy.attack(player);
-           displayPlayers();
+          //  displayPlayers();
            $('.attack').prop('disabled', false);
            $('.nssMode').prop('disabled', false);
-
          },3000);
        }
 
@@ -40,7 +39,7 @@
 
      $('.nssMode').on('click', function () {
         player.nssMode(badGuy);
-        displayPlayers();
+        // displayPlayers();
      });
 
      var randomProperty = function (obj) {
@@ -57,7 +56,7 @@
       var startingHealth = [player.health, badGuy.health];
 
 
-     function displayPlayers(){
+     gauntlet.displayPlayers = function(){
 
        var domStats = ``;
 
@@ -65,9 +64,9 @@
         domStats += `<div class="col-md-6 player-stats">
                         <img class="m-x-auto combatPicture" src="img/${e.image}" alt="${e}">
                         <div>
-                        <progress id="health${i}" value="${e.health}" max="${startingHealth[i]}"></progress>
+                        <progress value="${e.health}" max="${startingHealth[i]}"></progress>
                           <div>Name: <span>${e.playerName}</span></div>
-                          <div>Health: <span>${e.health}</span></div>
+                          <div>Health: <span id="health${i}"">${e.health}</span></div>
                           <div>Class: <span>${e.class.name}</span></div>
                           <div>Weapon: <span>${e.weapon}</span></div>
                          </div>
@@ -128,4 +127,6 @@
     });
   });
 
-})();
+  return gauntlet;
+
+})(Gauntlet || {});
