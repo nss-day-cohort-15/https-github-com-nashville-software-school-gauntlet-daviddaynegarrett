@@ -1,6 +1,6 @@
 #Gauntlet game
 
-[DEMO](https://nss-day-cohort-15.github.io/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/)
+[Play the Game!](https://nss-day-cohort-15.github.io/https-github-com-nashville-software-school-gauntlet-daviddaynegarrett/)
 
 Time to use protypal inheritance to build a game.
 
